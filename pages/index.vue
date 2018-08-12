@@ -1,0 +1,169 @@
+<template>
+  <div class="page-index">
+    <div class="hero" id="hero">
+    	<div class="hero__content">
+        <div v-lazy-container="{ selector: 'img' }">
+          <img data-src="/images/marina-aisa-photo.jpg" class="hero__profile" alt="Marina Aisa Picture" />
+        </div>
+        <div class="hero__text">
+          <h1 id="hero-text"> <img class="hero__waving" src="@/assets/images/waving-hand.gif" alt="hello"> <span id="hero-text-content"></span></h1>
+        </div>
+    	</div>
+    </div>
+    <i18n
+      path="index.greeting.message"
+      tag="h1"
+      for="index.greeting.name">
+      <nuxt-link
+        to="/about">
+        {{ $t("index.greeting.name") }}
+      </nuxt-link>
+    </i18n>
+    <div id="works">
+      <card
+        v-for="work in works"
+        :key="work.name"
+        :work="work" />
+    </div>
+  </div>
+</template>
+
+<script lang="js">
+
+  import createStore from '~/store/index'
+  import Card from "~/components/Card.vue";
+
+  export default {
+
+    components: { Card },
+
+    head () {
+      return {
+        title: this.pageTitle,
+        meta: [
+          { name: "author", content: this.$t("index.author") },
+          { name: "description", property: "og:description", content: this.pageDescription, hid: "description" },
+          { property: "og:title", content: this.pageTitle },
+          { property: "og:url", content: this.ogUrl },
+          { property: "og:image", content: this.ogImage },
+          { name: "twitter:description", content: this.pageDescription },
+          { name: "twitter:image", content: this.ogImage }
+        ]
+      };
+    },
+
+    data () {
+      return {
+        works: this.$store.state[this.$store.state.locale]
+      }
+    },
+
+    computed: {
+      ogUrl: function () {
+        return process.env.baseUrl;
+      },
+      ogImage: function () {
+        return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
+      },
+      pageTitle: function () {
+        return this.$t("index.title");
+      },
+      pageDescription: function () {
+        return this.$t("index.description");
+      }
+    }
+  }
+</script>
+
+<style lang="scss">
+.hero {
+width: 100%;
+background: $background-secondary;
+text-align: center;
+position: relative;
+height: 514px;
+
+.hero__content {
+  vertical-align: middle;
+  @extend .container;
+}
+
+.hero__text {
+  position: relative;
+  top: 39%;
+  background: white;
+  min-height: 74px;
+  margin-bottom: 2rem;
+  padding: 0;
+  width: 100%;
+  @media (min-width: $screen-sm){
+    width: 48%;
+    position: absolute;
+    min-height: 0;
+    margin-bottom: 0;
+  }
+  @media (min-width: $screen-md){
+    width: 40%;
+  }
+  @media (min-width: $screen-lg){
+    width: 30%;
+  }
+  @media (min-width: $screen-xlg){
+    width: 40rem;
+  }
+
+  h1 {
+    margin-bottom: 0;
+    padding: .7rem 2rem;
+    text-align: left;
+    transition:
+      background-color 0.3s ease-out,
+  }
+}
+
+.hero__profile {
+  width: 50%;
+  margin-bottom: -8px;
+  @media (min-width: $screen-sm){
+    float: right;
+    margin-bottom: 0;
+  }
+  transition: all ease .75s;
+  opacity: 0;
+  &[lazy='loaded'] {
+    opacity: 1;
+  }
+}
+
+.hero__image {
+  height: 90px;
+  width: auto;
+  @include margin-bottom(50px);
+
+  svg {
+    opacity: .2;
+  }
+}
+
+.hero__button {
+  margin-top: 2em;
+}
+
+@keyframes blink {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero-text--typing::after {
+  content: '|';
+  animation: blink 500ms infinite;
+  color: $primary;
+}
+&__waving {
+  width: 27px;
+  @media (min-width: $screen-sm){
+    width: 36px;
+  }
+}
+}
+</style>

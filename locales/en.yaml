@@ -1,0 +1,17 @@
+root:
+  copyright: © Marina Aisa %{year}
+  made_by:
+    marina: Marina
+    message: Lovingly made by {marina}
+index:
+  title: Marina Aisa — Digital Product Designer
+  author: Marina Aisa
+  description: Product Designer (UI/UX) for VR / Mobile / Web and Front-End Developer based in Barcelona
+  greeting:
+    name: Marina
+    message: Hello, I’m {0}, Product Designer based in Barcelona.
+work:
+  title: "%{name} — Marina Aisa"
+  product_owner: "Product Owner:"
+  role: "Role:"
+  see_more: See More
