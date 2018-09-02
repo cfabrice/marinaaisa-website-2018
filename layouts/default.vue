@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-    <header-navigation />
+  <div>
     <form
       netlify
       name="contact"

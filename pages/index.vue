@@ -3,27 +3,29 @@
     <div class="hero" id="hero">
     	<div class="hero__content">
         <div v-lazy-container="{ selector: 'img' }">
-          <img :data-src="require('@/assets/images/marina-aisa-photo.jpg?sizes[]=1200')" :data-loading="require('@/assets/images/marina-aisa-photo.jpg?sizes[]=100')" class="hero__profile" alt="Marina Aisa Picture" />
+          <img :data-src="require('@/assets/images/marina-aisa-photo.jpg')" :data-loading="require('@/assets/images/marina-aisa-photo.jpg?size=100')" class="hero__profile" alt="Marina Aisa Picture" />
         </div>
         <div class="hero__text">
           <h1 id="hero-text"> <img class="hero__waving" src="@/assets/images/waving-hand.gif" alt="hello"> <span id="hero-text-content"></span></h1>
         </div>
     	</div>
     </div>
-    <i18n
-      path="index.greeting.message"
-      tag="h1"
-      for="index.greeting.name">
-      <nuxt-link
-        to="/about">
-        {{ $t("index.greeting.name") }}
-      </nuxt-link>
-    </i18n>
-    <div id="works">
-      <card
-        v-for="work in works"
-        :key="work.name"
-        :work="work" />
+    <div class="container">
+      <i18n
+        path="index.greeting.message"
+        tag="h1"
+        for="index.greeting.name">
+        <nuxt-link
+          to="/about">
+          {{ $t("index.greeting.name") }}
+        </nuxt-link>
+      </i18n>
+      <div id="works">
+        <card
+          v-for="work in works"
+          :key="work.name"
+          :work="work" />
+      </div>
     </div>
   </div>
 </template>
@@ -81,7 +83,6 @@ width: 100%;
 background: $background-secondary;
 text-align: center;
 position: relative;
-height: 514px;
 
 .hero__content {
   vertical-align: middle;
