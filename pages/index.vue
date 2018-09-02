@@ -3,7 +3,7 @@
     <div class="hero" id="hero">
     	<div class="hero__content">
         <div v-lazy-container="{ selector: 'img' }">
-          <img data-src="/images/marina-aisa-photo.jpg" class="hero__profile" alt="Marina Aisa Picture" />
+          <img :data-src="require('@/assets/images/marina-aisa-photo.jpg?sizes[]=1200')" :data-loading="require('@/assets/images/marina-aisa-photo.jpg?sizes[]=100')" class="hero__profile" alt="Marina Aisa Picture" />
         </div>
         <div class="hero__text">
           <h1 id="hero-text"> <img class="hero__waving" src="@/assets/images/waving-hand.gif" alt="hello"> <span id="hero-text-content"></span></h1>
@@ -86,6 +86,7 @@ height: 514px;
 .hero__content {
   vertical-align: middle;
   @extend .container;
+  overflow: hidden;
 }
 
 .hero__text {
@@ -130,6 +131,10 @@ height: 514px;
   }
   transition: all ease .75s;
   opacity: 0;
+  &[lazy='loading'] {
+    opacity: 1;
+    filter: blur(5px);
+  }
   &[lazy='loaded'] {
     opacity: 1;
   }

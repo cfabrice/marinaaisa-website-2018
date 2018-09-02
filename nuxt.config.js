@@ -73,6 +73,10 @@ module.exports = {
       const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif|svg)$/');
       config.module.rules.splice(config.module.rules.indexOf(rule), 1);
 
+      config.module.rules.find(
+        rule => rule.loader === "url-loader"
+      ).exclude = /\.(jpe?g|png)$/;
+
       config.module.rules.push({
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',
@@ -90,10 +94,18 @@ module.exports = {
         ],
         include: path.resolve(__dirname, 'locales')
       }, {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(gif)$/,
         loader: 'url-loader',
         query: {
           name: 'img/[name].[hash:7].[ext]'
+        }
+      }, {
+        test: /\.(jpe?g|png)$/i,
+        loader: 'responsive-loader',
+        options: {
+          placeholder: true,
+          quality: 60,
+          adapter: require('responsive-loader/sharp')
         }
       }, {
         test: /\.svg$/,

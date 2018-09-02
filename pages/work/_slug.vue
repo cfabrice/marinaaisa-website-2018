@@ -1,8 +1,11 @@
 <template>
   <section class="workSelected">
-    <div
-      class="workSelected-horizontalImage"
-      v-lazy:background-image="mainImageUrl" />
+    <div class="overflowhidden">
+      <div
+        class="workSelected-horizontalImage"
+        v-lazy:background="objImageUrl" />
+      </div>
+    </div>
     <div class="outerMoat">
       <h1>
         {{ work.title }}
@@ -57,8 +60,13 @@
     },
 
     data () {
+      let mainImageUrl = require("@/assets/images/work/" + this.$route.params.slug + "/_main.jpg");
       return {
-        work: this.searchArray(this.$route.params.slug, this.$store.state[this.$store.state.locale])
+        work: this.searchArray(this.$route.params.slug, this.$store.state[this.$store.state.locale]),
+        objImageUrl: {
+          src: mainImageUrl,
+          loading: mainImageUrl.placeholder
+        }
       }
     },
 
@@ -73,9 +81,6 @@
     },
 
     computed: {
-      mainImageUrl: function () {
-        return `/images/work/${this.$route.params.slug}/${this.work.image.main || "_main.jpg"}`;
-      },
 
       relatedWorks: function () {
         const array = this.$store.state[this.$store.state.locale];
@@ -99,14 +104,24 @@
 </script>
 
 <style lang="scss">
+.overflowhidden {
+  overflow: hidden;
+}
 .workSelected-horizontalImage {
   height: 56rem;
   background-size: contain;
   transition: all ease .35s;
-  opacity: .7;
+  opacity: 0;
+
+  &[lazy='loading'] {
+    filter: blur(15px);
+    background-repeat: no-repeat!important;
+    background-size: contain!important;
+  }
   &[lazy='loaded'] {
     opacity: 1;
-    background-color: unset;
+    background-repeat: no-repeat!important;
+    background-size: contain!important;
   }
 }
 </style>
