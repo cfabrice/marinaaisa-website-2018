@@ -2,6 +2,7 @@ const builtAt = new Date().toISOString();
 const path = require('path');
 
 const buildLocale = process.env.BUILD_LOCALE || 'en';
+const isProd = process.env.NODE_ENV === 'production';
 const productionUrl = {
   en: "/en",
   ja: "/ja"
@@ -63,6 +64,7 @@ module.exports = {
   ],
 
   build: {
+    extractCSS: isProd,
     vendor: [
       'medium-zoom',
       'vue-carousel',
