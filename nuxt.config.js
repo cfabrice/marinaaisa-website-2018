@@ -64,7 +64,9 @@ module.exports = {
   ],
 
   build: {
-    extractCSS: isProd,
+    extractCSS: {
+      allChunks: true
+    },
     vendor: [
       'medium-zoom',
       'vue-carousel',
@@ -98,8 +100,8 @@ module.exports = {
       }, {
         test: /\.(gif)$/,
         loader: 'url-loader',
-        query: {
-          name: 'img/[name].[hash:7].[ext]'
+        options: {
+          limit: 8192
         }
       }, {
         test: /\.(jpe?g|png)$/i,
