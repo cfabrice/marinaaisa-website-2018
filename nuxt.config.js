@@ -74,7 +74,7 @@ module.exports = {
     ],
     extend (config, { isDev, isClient }) {
       // remove existing url-loader settings once, for giving svg specific loader
-      const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif|svg)$/');
+      const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif)$/');
       config.module.rules.splice(config.module.rules.indexOf(rule), 1);
 
       config.module.rules.find(
@@ -111,10 +111,6 @@ module.exports = {
           quality: 60,
           adapter: require('responsive-loader/sharp')
         }
-      }, {
-        test: /\.svg$/,
-        loader: 'svg-sprite-loader',
-        include: path.resolve(__dirname, 'assets/icons')
       });
     }
   },
