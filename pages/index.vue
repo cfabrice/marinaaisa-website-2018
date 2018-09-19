@@ -7,6 +7,9 @@
         </div>
         <div class="hero__text">
           <h1 id="hero-text"> <img class="hero__waving" src="@/assets/images/waving-hand.gif" alt="hello"> <span id="hero-text-content"></span></h1>
+          <h1 id="hero-text">
+            <span id="hero-text-content"></span>
+          </h1>
         </div>
     	</div>
     </div>
@@ -31,8 +34,8 @@
 </template>
 
 <script lang="js">
-
-  import createStore from '~/store/index'
+  import theaterJS from 'theaterJS';
+  import createStore from '~/store/index';
   import Card from "~/components/Card.vue";
 
   export default {
@@ -73,6 +76,30 @@
       pageDescription: function () {
         return this.$t("index.description");
       }
+    },
+
+    mounted: function() {
+      var theater = theaterJS()
+
+      theater
+        .on('type:start, erase:start', function () {
+          theater.getCurrentActor().$element.classList.add('hero-text--typing')
+        })
+        .on('type:end, erase:end', function () {
+          theater.getCurrentActor().$element.classList.remove('hero-text--typing')
+        })
+        .on('type:start, erase:start', function () {
+          if (theater.getCurrentActor().name === 'hero-text') {
+            document.body.classList.add('dark')
+          } else {
+            document.body.classList.remove('dark')
+          }
+        })
+
+      theater
+        .addActor('hero-text-content', { speed: .9, accuracy: 1 })
+        .addScene('hero-text-content: Hi! I\'m <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aisa</a>', 600, ', <br> a product designer.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -17, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
+        .addScene(theater.replay.bind(theater))
     }
   }
 </script>

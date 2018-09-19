@@ -12,8 +12,9 @@
     "frontmatter-markdown-loader": "^1.1.0",
     "medium-zoom": "^0.4.0",
     "normalize.css": "^8.0.0",
-    "nuxt-sass-resources-loader": "^2.0.2",
     "nuxt": "^1.4.2",
+    "nuxt-sass-resources-loader": "^2.0.2",
+    "theaterjs": "^3.2.0",
     "vue-carousel": "^0.10.0",
     "vue-lazyload": "^1.2.6"
   },
