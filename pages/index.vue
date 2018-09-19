@@ -6,7 +6,6 @@
           <img :data-src="require('@/assets/images/marina-aisa-photo.jpg')" :data-loading="require('@/assets/images/marina-aisa-photo.jpg?size=100')" class="hero__profile" alt="Marina Aisa Picture" />
         </div>
         <div class="hero__text">
-          <h1 id="hero-text"> <img class="hero__waving" src="@/assets/images/waving-hand.gif" alt="hello"> <span id="hero-text-content"></span></h1>
           <h1 id="hero-text">
             <span id="hero-text-content"></span>
           </h1>
