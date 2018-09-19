@@ -125,10 +125,7 @@ module.exports = {
         '@/assets/css/utilities/_helpers.scss',
         '@/assets/css/base/_grid.scss',
         '@/assets/css/base/_buttons.scss'
-    ]],
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-XXXXXXXX-X'
-    }]
+    ]]
   ],
   generate: {
     fallback: true,
