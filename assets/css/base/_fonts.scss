@@ -1,16 +1,26 @@
 @font-face {
-	font-family: "Circular Book";
+	font-family: "Graphik Regular";
 	font-style: normal;
 	font-weight: 200;
-  src: url("fonts/Circular-Book.eot?") format("eot"),
-	     url("fonts/Circular-Book.woff") format("woff"),
-	     url("fonts/Circular-Book.ttf") format("truetype");
+  src: url("fonts/Graphik-Regular.eot?") format("eot"),
+	     url("fonts/Graphik-Regular.woff") format("woff"),
+	     url("fonts/Graphik-Regular.ttf") format("truetype"),
+       url("fonts/Graphik-Regular.svg#Graphik-Regular") format("svg");
 }
 
-$font-base-color:             $secondary;
-$font-family-base:            'Circular Book', sans-serif;
-$font-family-semibold:        'Circular Book', sans-serif;
-$font-family-light:           'Circular Book', sans-serif;
+@font-face {
+	font-family: "Graphik Semibold";
+	font-style: normal;
+	font-weight: 200;
+  src: url("fonts/Graphik-Semibold.eot?") format("eot"),
+	     url("fonts/Graphik-Semibold.woff") format("woff"),
+	     url("fonts/Graphik-Semibold.ttf") format("truetype"),
+       url("fonts/Graphik-Semibold.svg#Graphik-Semibold") format("svg");
+}
+
+$font-base-color:             $secondary-light;
+$font-family-base:            'Graphik Regular', sans-serif;
+$font-family-semibold:        'Graphik Semibold', sans-serif;
 $line-height-base:            1.5;
 $fs-base:                     1.6rem;
 $fs-base-responsive:          1.4rem;
@@ -24,6 +34,7 @@ $fs-h3:                       $fs-base;
 $fs-h4:                       $fs-base;
 $fs-h5:                       $fs-base;
 $fs-h6:                       $fs-small;
+
 
 html {
   font-size: 62.5%; /* Now 10px = 1rem! */
