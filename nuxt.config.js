@@ -98,12 +98,6 @@ module.exports = {
         ],
         include: path.resolve(__dirname, 'locales')
       }, {
-        test: /\.(gif)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 8192
-        }
-      }, {
         test: /\.(jpe?g|png)$/i,
         loader: 'responsive-loader',
         options: {
