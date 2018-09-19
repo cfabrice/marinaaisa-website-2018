@@ -13,15 +13,6 @@
     	</div>
     </div>
     <div class="container">
-      <i18n
-        path="index.greeting.message"
-        tag="h1"
-        for="index.greeting.name">
-        <nuxt-link
-          to="/about">
-          {{ $t("index.greeting.name") }}
-        </nuxt-link>
-      </i18n>
       <div id="works">
         <card
           v-for="work in works"
