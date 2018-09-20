@@ -24,7 +24,7 @@
 </template>
 
 <script lang="js">
-  import theaterJS from 'theaterJS';
+  import theaterJS from 'theaterjs';
   import createStore from '~/store/index';
   import Card from "~/components/Card.vue";
 
