@@ -81,12 +81,6 @@
     },
 
     computed: {
-
-      relatedWorks: function () {
-        const array = this.$store.state[this.$store.state.locale];
-        const index = array.findIndex(x => x.name==this.work.name);
-        return array;
-      },
       ogUrl: function () {
         return process.env.baseUrl;
       },
