@@ -4,9 +4,7 @@ const LANGS = ["en", "ja"];
 
 const importsByLang = { en: {}, ja: {} };
 
-const types = {
-  INITIALIZE: "INITIALIZE"
-};
+const INITIALIZE = "INITIALIZE";
 
 const importAll = (resolve, lang) => {
   resolve.keys().forEach((key) => {
@@ -15,6 +13,7 @@ const importAll = (resolve, lang) => {
   });
 };
 importAll(require.context("~/contents/en/work", true, /\.md$/), "en");
+importAll(require.context("~/contents/en/blog", true, /\.md$/), "en");
 importAll(require.context("~/contents/ja/work", true, /\.md$/), "ja");
 
 const createStore = () => {
@@ -48,19 +47,39 @@ const createStore = () => {
               }
             };
           });
+          const blogs = Object.keys(importsByLang[lang]).map((key) => {
+            const frontmatter = importsByLang[lang][key];
+            const attr = frontmatter.attributes;
+            return {
+              name: key,
+              title: attr.title,
+              year: attr.year,
+              owner: attr.owner,
+              colors: attr.colors,
+              role: attr.role,
+              description: attr.description,
+              related: attr.related,
+              renderFunc: frontmatter.vue.render,
+              staticRenderFuncs: frontmatter.vue.staticRenderFns,
+              image: {
+                main: attr.image && attr.image.main,
+                og: attr.image && attr.image.og
+              }
+            };
+          });
           commit(
-            types.INITIALIZE,
-            { works, lang }
+            INITIALIZE,
+            { blogs, works, lang }
           );
         });
       },
       async nuxtServerInit({ dispatch }) {
-        dispatch("initializeWorksFromAttributes", {laughly: "laughly"});
+        dispatch("initializeWorksFromAttributes");
       }
     },
     mutations: {
-      [types.INITIALIZE](state, payload) {
-        state[payload.lang] = payload.works;
+      [INITIALIZE](state, payload) {
+        state[payload.lang] = payload;
       }
     }
   });

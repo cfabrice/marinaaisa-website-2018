@@ -62,7 +62,7 @@
     data () {
       let mainImageUrl = require("@/assets/images/work/" + this.$route.params.slug + "/_main.jpg");
       return {
-        work: this.searchArray(this.$route.params.slug, this.$store.state[this.$store.state.locale]),
+        work: this.searchArray(this.$route.params.slug, this.$store.state[this.$store.state.locale].works),
         objImageUrl: {
           src: mainImageUrl,
           loading: mainImageUrl.placeholder

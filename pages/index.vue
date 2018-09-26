@@ -50,7 +50,7 @@
 
     data () {
       return {
-        works: this.$store.state[this.$store.state.locale]
+        works: this.$store.state[this.$store.state.locale].works
       }
     },
 
