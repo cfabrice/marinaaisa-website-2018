@@ -1,20 +1,21 @@
 import Vuex from "vuex";
 
-const LANGS = ["en", "ja"];
+const LANGS = ["en", "es"];
+const TYPES = ["work", "blog"];
 
-const importsByLang = { en: {}, ja: {} };
+const importsByLang = { en: { work: {}, blog: {} }, es: { work: {}, blog: {} } };
 
 const INITIALIZE = "INITIALIZE";
 
-const importAll = (resolve, lang) => {
+const importAll = (resolve, lang, type) => {
   resolve.keys().forEach((key) => {
-    const [_, work] = key.match(/\/(.+)\.md$/);
-    importsByLang[lang][work] = resolve(key);
+    const [_, name] = key.match(/\/(.+)\.md$/);
+    importsByLang[lang][type][name] = resolve(key);
   });
 };
-importAll(require.context("~/contents/en/work", true, /\.md$/), "en");
-importAll(require.context("~/contents/en/blog", true, /\.md$/), "en");
-importAll(require.context("~/contents/ja/work", true, /\.md$/), "ja");
+importAll(require.context("~/contents/en/work", true, /\.md$/), "en", "work");
+importAll(require.context("~/contents/en/blog", true, /\.md$/), "en", "blog");
+importAll(require.context("~/contents/ja/work", true, /\.md$/), "es", "work");
 
 const createStore = () => {
   return new Vuex.Store({
@@ -22,13 +23,13 @@ const createStore = () => {
     state: {
       locale: process.env.buildLocale,
       en: [],
-      ja: []
+      es: []
     },
     actions: {
       initializeWorksFromAttributes ({ commit }) {
         LANGS.forEach((lang) => {
-          const works = Object.keys(importsByLang[lang]).map((key) => {
-            const frontmatter = importsByLang[lang][key];
+          const works = Object.keys(importsByLang[lang].work).map((key) => {
+            const frontmatter = importsByLang[lang].work[key];
             const attr = frontmatter.attributes;
             return {
               name: key,
@@ -47,8 +48,8 @@ const createStore = () => {
               }
             };
           });
-          const blogs = Object.keys(importsByLang[lang]).map((key) => {
-            const frontmatter = importsByLang[lang][key];
+          const blogs = Object.keys(importsByLang[lang].blog).map((key) => {
+            const frontmatter = importsByLang[lang].blog[key];
             const attr = frontmatter.attributes;
             return {
               name: key,
@@ -69,7 +70,7 @@ const createStore = () => {
           });
           commit(
             INITIALIZE,
-            { blogs, works, lang }
+            { works, blogs, lang }
           );
         });
       },
