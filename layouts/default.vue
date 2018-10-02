@@ -1,27 +1,5 @@
 <template>
   <div>
-    <form
-      netlify
-      name="contact"
-      netlify-honeypot="bot-field"
-      style="display: none">
-      <input
-        type="hidden"
-        name="form-name"
-        value="contact">
-      <input
-        type="text"
-        name="sender">
-      <input
-        type="email"
-        name="email">
-      <textarea
-        id="hiddenTextArea"
-        name="message" />
-      <div
-        netlify-recaptcha
-        ref="recaptcha" />
-    </form>
     <nuxt/>
     <footer>
       <div id="exposures">
@@ -36,17 +14,6 @@
         </div>
       </div>
       <div id="copyright">
-        <span>{{ $t('root.copyright', { year: new Date().getFullYear() }) }} /
-        </span>
-        <i18n
-          path="root.made_by.message"
-          tag="span">
-          <nuxt-link
-            to="/about"
-            place="marina">
-            {{ $t("root.made_by.marina") }}
-          </nuxt-link>
-        </i18n>
       </div>
     </footer>
   </div>

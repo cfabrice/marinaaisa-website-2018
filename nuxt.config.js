@@ -67,11 +67,6 @@ module.exports = {
     extractCSS: {
       allChunks: true
     },
-    vendor: [
-      'medium-zoom',
-      'vue-carousel',
-      'vue-i18n'
-    ],
     extend (config, { isDev, isClient }) {
       // remove existing url-loader settings once, for giving svg specific loader
       const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif)$/');
@@ -108,7 +103,7 @@ module.exports = {
       });
     }
   },
-  plugins: ['~/plugins/i18n', '~/plugins/lazyload'],
+  plugins: ['~/plugins/lazyload'],
   modules: [
     ['nuxt-sass-resources-loader', [
         '@/assets/css/utilities/_variables.scss',
