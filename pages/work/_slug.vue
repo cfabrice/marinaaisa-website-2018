@@ -25,9 +25,9 @@
         <span class="relatedWorks-header">{{ $t("work.see_more") }}</span>
         <div class="relatedWorks-cards">
           <card
-            v-for="relatedWork in relatedWorks"
-            :key="relatedWork.name"
-            :work="relatedWork" />
+            v-for="work in relatedWorks"
+            :key="work.name"
+            :work="work" />
         </div>
       </div>
     </div>
@@ -63,6 +63,7 @@
       let mainImageUrl = require("@/assets/images/work/" + this.$route.params.slug + "/_main.jpg");
       return {
         work: this.searchArray(this.$route.params.slug, this.$store.state[this.$store.state.locale].works),
+        relatedWorks: this.$store.state[this.$store.state.locale].works,
         objImageUrl: {
           src: mainImageUrl,
           loading: mainImageUrl.placeholder
