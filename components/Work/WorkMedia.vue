@@ -24,11 +24,10 @@
 
   import WorkImg from "./WorkImg.vue";
   import WorkVideo from "./WorkVideo.vue";
-  import WorkCarousel from "./WorkCarousel.vue";
 
   export default {
 
-    components: { WorkImg, WorkVideo, WorkCarousel },
+    components: { WorkImg, WorkVideo },
 
     props: {
       name: {

@@ -37,7 +37,7 @@
       return {
         title: this.pageTitle,
         meta: [
-          { name: "author", content: this.$t("index.author") },
+          { name: "author", content: "Marina Aisa" },
           { name: "description", property: "og:description", content: this.pageDescription, hid: "description" },
           { property: "og:title", content: this.pageTitle },
           { property: "og:url", content: this.ogUrl },
@@ -62,10 +62,10 @@
         return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
       },
       pageTitle: function () {
-        return this.$t("index.title");
+        return "title";
       },
       pageDescription: function () {
-        return this.$t("index.description");
+        return "description";
       }
     },
 
