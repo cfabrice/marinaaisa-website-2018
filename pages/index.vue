@@ -2,9 +2,7 @@
   <div class="page-index">
     <div class="hero" id="hero">
     	<div class="hero__content">
-        <div v-lazy-container="{ selector: 'img' }">
-          <img :data-src="require('@/assets/images/marina-aisa-photo.jpg')" :data-loading="require('@/assets/images/marina-aisa-photo.jpg?size=100')" class="hero__profile" alt="Marina Aisa Picture" />
-        </div>
+        <ImageResponsive :classes="images.marina.classes" :imageURL="images.marina.url"/>
         <div class="hero__text">
           <h1 id="hero-text">
             <span id="hero-text-content"></span>
@@ -28,10 +26,11 @@
   import theaterJS from 'theaterjs';
   import createStore from '~/store/index';
   import Card from "~/components/Card.vue";
+  import ImageResponsive from "~/components/Image.vue";
 
   export default {
 
-    components: { Card },
+    components: { Card, ImageResponsive },
 
     head () {
       return {
@@ -50,7 +49,14 @@
 
     data () {
       return {
-        works: this.$store.state[this.$store.state.locale]
+        works: this.$store.state[this.$store.state.locale],
+        images: {
+          marina: {
+            url: require('@/assets/images/marina-aisa-photo.jpg'),
+            classes: 'hero__profile',
+            alt: 'Imagen de Marina'
+          }
+        }
       }
     },
 
@@ -147,15 +153,6 @@ position: relative;
   @media (min-width: $screen-sm){
     float: right;
     margin-bottom: 0;
-  }
-  transition: all ease .75s;
-  opacity: 0;
-  &[lazy='loading'] {
-    opacity: 1;
-    filter: blur(5px);
-  }
-  &[lazy='loaded'] {
-    opacity: 1;
   }
 }
 
