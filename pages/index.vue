@@ -5,8 +5,8 @@
         <ImageResponsive
           :imageURL="'marina-aisa-photo.jpg'"
           :classes="'hero__profile'"
-          :width="'478px'"
-          :height="'476px'"
+          :width="'478'"
+          :height="'476'"
           :alt="'Imagen de Marina'" />
         <div class="hero__text">
           <h1 id="hero-text">

@@ -38,6 +38,7 @@ const createStore = () => {
               owner: attr.owner,
               colors: attr.colors,
               role: attr.role,
+              cardAlt: attr.cardAlt,
               description: attr.description,
               related: attr.related,
               renderFunc: frontmatter.vue.render,

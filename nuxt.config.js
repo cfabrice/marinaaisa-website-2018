@@ -96,7 +96,7 @@ module.exports = {
         options: {
           placeholder: true,
           quality: 60,
-          size: 1000,
+          size: 1400,
           adapter: require('responsive-loader/sharp')
         }
       }, {
