@@ -30,7 +30,6 @@ import ImageResponsive from "~/components/Image.vue";
 
   export default {
     components: { ImageResponsive },
-
     props: {
       work: {
         type: Object,

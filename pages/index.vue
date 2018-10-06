@@ -23,6 +23,12 @@
           :key="work.name"
           :work="work" />
       </div>
+      <div id="blogs">
+        <card
+          v-for="work in blogs"
+          :key="work.name"
+          :work="work" />
+      </div>
     </div>
   </div>
 </template>
@@ -53,8 +59,10 @@
     },
 
     data () {
+      const store = this.$store.state[this.$store.state.locale];
       return {
-        works: this.$store.state[this.$store.state.locale]
+        works: store.works,
+        blogs: store.blogs
       }
     },
 
