@@ -1,34 +1,34 @@
 <template>
-  <section class="workSelected">
+  <section class="blogSelected">
     <div class="overflowhidden">
       <div
-        class="workSelected-horizontalImage"
+        class="blogSelected-horizontalImage"
         v-lazy:background="objImageUrl" />
       </div>
     </div>
     <div class="outerMoat">
       <h1>
-        {{ work.title }}
-        <span class="workSelected-year">{{ work.year }}</span>
+        {{ blog.title }}
+        <span class="blogSelected-year">{{ blog.year }}</span>
       </h1>
-      <p>{{ work.description }}</p>
-      <dl class="workSelected-meta">
+      <p>{{ blog.description }}</p>
+      <dl class="blogSelected-meta">
         <dt>Product Owner</dt>
-        <dd>{{ work.owner }}</dd>
+        <dd>{{ blog.owner }}</dd>
         <dt>Product Role</dt>
-        <dd>{{ work.role }}</dd>
+        <dd>{{ blog.role }}</dd>
       </dl>
       <DynamicMarkdown
-        :render-func="work.renderFunc"
-        :static-render-funcs="work.staticRenderFuncs" />
-      <div id="relatedWorks">
-        <span class="relatedWorks-header">"See more"</span>
-        <div class="relatedWorks-cards">
+        :render-func="blog.renderFunc"
+        :static-render-funcs="blog.staticRenderFuncs" />
+      <div id="relatedblogs">
+        <span class="relatedblogs-header">"See more"</span>
+        <div class="relatedblogs-cards">
           <card
-            v-for="work in relatedWorks"
-            :key="work.name"
-            :work="work"
-            :isWork="true" />
+            v-for="blog in relatedblogs"
+            :key="blog.name"
+            :work="blog"
+            :isWork="false" />
         </div>
       </div>
     </div>
@@ -38,12 +38,12 @@
 <script lang="js">
 
   import DynamicMarkdown from "~/components/Work/DynamicMarkdown.vue";
-  import WorkMedia from "~/components/Work/WorkMedia.vue";
+  import blogMedia from "~/components/Work/WorkMedia.vue";
   import Card from "~/components/Card.vue";
 
   export default {
 
-    components: { DynamicMarkdown, WorkMedia, Card },
+    components: { DynamicMarkdown, blogMedia, Card },
 
     head () {
       return {
@@ -61,10 +61,10 @@
     },
 
     data () {
-      let mainImageUrl = require("@/assets/images/work/" + this.$route.params.slug + "/_main.jpg");
+      let mainImageUrl = require("@/assets/images/blog/" + this.$route.params.slug + "/_main.jpg");
       return {
-        work: this.searchArray(this.$route.params.slug, this.$store.state[this.$store.state.locale].works),
-        relatedWorks: this.$store.state[this.$store.state.locale].works,
+        blog: this.searchArray(this.$route.params.slug, this.$store.state[this.$store.state.locale].blogs),
+        relatedblogs: this.$store.state[this.$store.state.locale].blogs,
         objImageUrl: {
           src: mainImageUrl,
           loading: mainImageUrl.placeholder
@@ -103,7 +103,7 @@
 .overflowhidden {
   overflow: hidden;
 }
-.workSelected-horizontalImage {
+.blogSelected-horizontalImage {
   height: 56rem;
   background-size: contain;
   transition: all ease .35s;

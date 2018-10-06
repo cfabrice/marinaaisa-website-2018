@@ -13,6 +13,10 @@ const works = [
   "vr-player"
 ];
 
+const blogs = [
+  "prueba-blog"
+];
+
 module.exports = {
   env: {
     baseUrl,
@@ -124,6 +128,8 @@ module.exports = {
     routes: [
       '/about',
       '/contact',
-    ].concat(works.map(w => `/work/${w}`))
+    ]
+    .concat(works.map(w => `/work/${w}`))
+    .concat(blogs.map(w => `/blog/${w}`))
   }
 }

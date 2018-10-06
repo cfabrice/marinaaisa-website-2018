@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio__item">
-    <nuxt-link :to="`/work/${work.name}`" class="portfolio__thumb-inner">
+    <nuxt-link :to="nuxtLink" class="portfolio__thumb-inner">
       <div class="portfolio__thumb-hover" :style="backgroundColor">
         <h3 class="portfolio__thumb-description">
           {{ work.title }}
@@ -32,21 +32,26 @@ import ImageResponsive from "~/components/Image.vue";
     components: { ImageResponsive },
     props: {
       work: {
-        type: Object,
+        type: Object
       },
       article: {
         type: Object
+      },
+      isWork: {
+        type: Boolean
       }
     },
 
     computed: {
-      isWork: function() {
-        return !!this.work;
-      },
       cardImage: function() {
         return this.isWork ?
           `work/${this.work.name}/_thumbnail.jpg` :
-          `/images/articles/${this.article.name}.jpg`;
+          `blog/${this.work.name}/_thumbnail.jpg`;
+      },
+      nuxtLink: function() {
+        return this.isWork ?
+          `/work/${this.work.name}`:
+          `/blog/${this.work.name}`;
       },
       backgroundColor: function() {
         return `background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, ${this.work.colors} 70%);`

@@ -21,13 +21,15 @@
         <card
           v-for="work in works"
           :key="work.name"
-          :work="work" />
+          :work="work"
+          :isWork="true" />
       </div>
       <div id="blogs">
         <card
           v-for="work in blogs"
           :key="work.name"
-          :work="work" />
+          :work="work"
+          :isWork="false" />
       </div>
     </div>
   </div>
