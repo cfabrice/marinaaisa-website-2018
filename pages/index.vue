@@ -2,7 +2,12 @@
   <div class="page-index">
     <div class="hero" id="hero">
     	<div class="hero__content">
-        <ImageResponsive :classes="images.marina.classes" :imageURL="images.marina.url"/>
+        <ImageResponsive
+          :imageURL="'marina-aisa-photo.jpg'"
+          :classes="'hero__profile'"
+          :width="'478px'"
+          :height="'476px'"
+          :alt="'Imagen de Marina'" />
         <div class="hero__text">
           <h1 id="hero-text">
             <span id="hero-text-content"></span>
@@ -49,14 +54,7 @@
 
     data () {
       return {
-        works: this.$store.state[this.$store.state.locale],
-        images: {
-          marina: {
-            url: require('@/assets/images/marina-aisa-photo.jpg'),
-            classes: 'hero__profile',
-            alt: 'Imagen de Marina'
-          }
-        }
+        works: this.$store.state[this.$store.state.locale]
       }
     },
 
