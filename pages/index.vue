@@ -2,9 +2,12 @@
   <div class="page-index">
     <div class="hero" id="hero">
     	<div class="hero__content">
-        <div v-lazy-container="{ selector: 'img' }">
-          <img :data-src="require('@/assets/images/marina-aisa-photo.jpg')" :data-loading="require('@/assets/images/marina-aisa-photo.jpg?size=100')" class="hero__profile" alt="Marina Aisa Picture" />
-        </div>
+        <ImageResponsive
+          :imageURL="'marina-aisa-photo.jpg'"
+          :classes="'hero__profile'"
+          :width="'478'"
+          :height="'476'"
+          :alt="'Imagen de Marina'" />
         <div class="hero__text">
           <h1 id="hero-text">
             <span id="hero-text-content"></span>
@@ -34,16 +37,17 @@
   import theaterJS from 'theaterjs';
   import createStore from '~/store/index';
   import Card from "~/components/Card.vue";
+  import ImageResponsive from "~/components/Image.vue";
 
   export default {
 
-    components: { Card },
+    components: { Card, ImageResponsive },
 
     head () {
       return {
         title: this.pageTitle,
         meta: [
-          { name: "author", content: this.$t("index.author") },
+          { name: "author", content: "Marina Aisa" },
           { name: "description", property: "og:description", content: this.pageDescription, hid: "description" },
           { property: "og:title", content: this.pageTitle },
           { property: "og:url", content: this.ogUrl },
@@ -70,10 +74,10 @@
         return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
       },
       pageTitle: function () {
-        return this.$t("index.title");
+        return "title";
       },
       pageDescription: function () {
-        return this.$t("index.description");
+        return "description";
       }
     },
 
@@ -155,15 +159,6 @@ position: relative;
   @media (min-width: $screen-sm){
     float: right;
     margin-bottom: 0;
-  }
-  transition: all ease .75s;
-  opacity: 0;
-  &[lazy='loading'] {
-    opacity: 1;
-    filter: blur(5px);
-  }
-  &[lazy='loaded'] {
-    opacity: 1;
   }
 }
 

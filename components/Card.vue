@@ -9,7 +9,12 @@
           {{ work.role }}
         </h3>
       </div>
-      <img class="cardThumbnail" v-lazy="cardImage" alt="">
+      <ImageResponsive
+        :imageURL="cardImage"
+        :classes="'cardThumbnail'"
+        :width="'952'"
+        :height="'509'"
+        :alt="work.cardAlt" />
     </nuxt-link>
     <div class="portfolio__description">
       {{ work.title }}
@@ -21,7 +26,10 @@
 </template>
 
 <script lang="js">
+import ImageResponsive from "~/components/Image.vue";
+
   export default {
+    components: { ImageResponsive },
     props: {
       work: {
         type: Object,
@@ -37,7 +45,7 @@
       },
       cardImage: function() {
         return this.isWork ?
-          `/images/work/${this.work.name}/_thumbnail.jpg` :
+          `work/${this.work.name}/_thumbnail.jpg` :
           `/images/articles/${this.article.name}.jpg`;
       },
       backgroundColor: function() {

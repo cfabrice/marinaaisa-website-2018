@@ -55,7 +55,10 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#5a46ff' },
+  loading: {
+    color: '#5a46ff',
+    height: '3px'
+  },
   /*
   ** Build configuration
   */
@@ -67,19 +70,9 @@ module.exports = {
     extractCSS: {
       allChunks: true
     },
-    vendor: [
-      'medium-zoom',
-      'vue-carousel',
-      'vue-i18n'
-    ],
     extend (config, { isDev, isClient }) {
-      // remove existing url-loader settings once, for giving svg specific loader
-      const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif)$/');
+      const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/');
       config.module.rules.splice(config.module.rules.indexOf(rule), 1);
-
-      config.module.rules.find(
-        rule => rule.loader === "url-loader"
-      ).exclude = /\.(jpe?g|png)$/;
 
       config.module.rules.push({
         test: /\.md$/,
@@ -103,12 +96,20 @@ module.exports = {
         options: {
           placeholder: true,
           quality: 60,
+          size: 1400,
           adapter: require('responsive-loader/sharp')
+        }
+      }, {
+        test: /\.(gif|svg)$/,
+        loader: 'url-loader',
+        query: {
+          limit: 1000,
+          name: 'img/[name].[hash:7].[ext]'
         }
       });
     }
   },
-  plugins: ['~/plugins/i18n', '~/plugins/lazyload'],
+  plugins: ['~/plugins/lazyload'],
   modules: [
     ['nuxt-sass-resources-loader', [
         '@/assets/css/utilities/_variables.scss',
