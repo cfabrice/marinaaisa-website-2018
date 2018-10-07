@@ -31,6 +31,12 @@
           :work="work"
           :isWork="false" />
       </div>
+      <Experience
+        v-for="item in workExperience"
+        :key="item.place"
+        :item="item"
+        :isWork="true"
+      />
     </div>
   </div>
 </template>
@@ -40,10 +46,12 @@
   import createStore from '~/store/index';
   import Card from "~/components/Card.vue";
   import ImageResponsive from "~/components/Image.vue";
+  import Experience from "~/components/Experience.vue";
+  import workExperience from '@/contents/workexperience.json';
 
   export default {
 
-    components: { Card, ImageResponsive },
+    components: { Card, ImageResponsive, Experience },
 
     head () {
       return {
@@ -64,8 +72,10 @@
       const store = this.$store.state[this.$store.state.locale];
       return {
         works: store.works,
-        blogs: store.blogs
+        blogs: store.blogs,
+        workExperience: workExperience,
       }
+
     },
 
     computed: {
