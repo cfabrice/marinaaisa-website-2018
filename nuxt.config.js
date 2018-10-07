@@ -5,7 +5,7 @@ const buildLocale = process.env.BUILD_LOCALE || 'en';
 const isProd = process.env.NODE_ENV === 'production';
 const productionUrl = {
   en: "/en",
-  ja: "/ja"
+  es: "/es"
 };
 const baseUrl = 'marinaaisa.com';
 

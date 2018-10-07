@@ -15,7 +15,7 @@ const importAll = (resolve, lang, type) => {
 };
 importAll(require.context("~/contents/en/work", true, /\.md$/), "en", "work");
 importAll(require.context("~/contents/en/blog", true, /\.md$/), "en", "blog");
-importAll(require.context("~/contents/ja/work", true, /\.md$/), "es", "work");
+importAll(require.context("~/contents/es/work", true, /\.md$/), "es", "work");
 
 const createStore = () => {
   return new Vuex.Store({
