@@ -39,6 +39,8 @@ module.exports = {
       { property: 'og:updated_time', content: builtAt }
     ],
     link: [
+      { rel:'preload', as:'font', href: '/fonts/Graphik-Regular.woff2', type:'font/woff2', crossorigin:'anonymous'},
+      { rel:'preload', as:'font', href: '/fonts/Graphik-Semibold.woff2', type:'font/woff2', crossorigin:'anonymous'},
       { rel: 'icon', type: 'image/png', href: '/favicons/favicon-16x16.png', sizes: '16x16' },
       { rel: 'icon', type: 'image/png', href: '/favicons/favicon-32x32.png', sizes: '32x32' },
       { rel: 'icon', type: 'image/png', href: '/favicons/android-chrome-96x96.png', sizes: '96x96' },

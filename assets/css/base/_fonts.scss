@@ -2,7 +2,7 @@
 	font-family: "Graphik Regular";
 	font-style: normal;
 	font-weight: 200;
-  src: url("fonts/Graphik-Regular.eot?") format("eot"),
+  src: url("/fonts/Graphik-Regular.woff2") format("woff2"),
 	     url("fonts/Graphik-Regular.woff") format("woff"),
 	     url("fonts/Graphik-Regular.ttf") format("truetype"),
        url("fonts/Graphik-Regular.svg#Graphik-Regular") format("svg");
@@ -12,15 +12,15 @@
 	font-family: "Graphik Semibold";
 	font-style: normal;
 	font-weight: 200;
-  src: url("fonts/Graphik-Semibold.eot?") format("eot"),
+  src: url("/fonts/Graphik-Semibold.woff2") format("woff2"),
 	     url("fonts/Graphik-Semibold.woff") format("woff"),
 	     url("fonts/Graphik-Semibold.ttf") format("truetype"),
        url("fonts/Graphik-Semibold.svg#Graphik-Semibold") format("svg");
 }
 
 $font-base-color:             $secondary-light;
-$font-family-base:            'Graphik Regular', sans-serif;
-$font-family-semibold:        'Graphik Semibold', sans-serif;
+$font-family-base:            'Graphik Regular', Arial, sans-serif;
+$font-family-semibold:        'Graphik Semibold', Arial, sans-serif;
 $line-height-base:            1.5;
 $fs-base:                     1.6rem;
 $fs-base-responsive:          1.4rem;
@@ -45,6 +45,7 @@ html {
 body {
   font-family: $font-family-base;
   font-size: $fs-base-responsive;
+  font-display: swap;
   color: $font-base-color;
   line-height: $line-height-base;
   @media (min-width: $screen-sm){
