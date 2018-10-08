@@ -1,6 +1,7 @@
 @font-face {
 	font-family: "Graphik Regular";
 	font-style: normal;
+  font-display: swap;
 	font-weight: 200;
   src: url("/fonts/Graphik-Regular.woff2") format("woff2"),
 	     url("fonts/Graphik-Regular.woff") format("woff"),
@@ -11,6 +12,7 @@
 @font-face {
 	font-family: "Graphik Semibold";
 	font-style: normal;
+  font-display: swap;
 	font-weight: 200;
   src: url("/fonts/Graphik-Semibold.woff2") format("woff2"),
 	     url("fonts/Graphik-Semibold.woff") format("woff"),
@@ -45,7 +47,6 @@ html {
 body {
   font-family: $font-family-base;
   font-size: $fs-base-responsive;
-  font-display: swap;
   color: $font-base-color;
   line-height: $line-height-base;
   @media (min-width: $screen-sm){
