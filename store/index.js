@@ -21,7 +21,6 @@ const createStore = () => {
   return new Vuex.Store({
     strict: false,
     state: {
-      locale: process.env.buildLocale,
       en: [],
       es: []
     },

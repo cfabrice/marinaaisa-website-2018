@@ -1,6 +1,10 @@
 <template>
   <div class="portfolio__item">
-    <nuxt-link :to="nuxtLink" class="portfolio__thumb-inner">
+    <nuxt-link
+      :to="localePath({
+        name: nuxtLink,
+        params: { slug: work.name }
+      })" class="portfolio__thumb-inner">
       <div class="portfolio__thumb-hover" :style="backgroundColor">
         <h3 class="portfolio__thumb-description">
           {{ work.title }}
@@ -50,8 +54,8 @@ import ImageResponsive from "~/components/Image.vue";
       },
       nuxtLink: function() {
         return this.isWork ?
-          `/work/${this.work.name}`:
-          `/blog/${this.work.name}`;
+          'work-slug':
+          'blog-slug';
       },
       backgroundColor: function() {
         return `background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, ${this.work.colors} 70%);`

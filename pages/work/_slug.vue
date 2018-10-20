@@ -1,5 +1,6 @@
 <template>
   <section class="workSelected">
+    <LangSwitcher />
     <div class="overflowhidden">
       <div
         class="workSelected-horizontalImage"
@@ -36,14 +37,14 @@
 </template>
 
 <script lang="js">
-
+  import LangSwitcher from '~/components/LangSwitcher'
   import DynamicMarkdown from "~/components/Work/DynamicMarkdown.vue";
   import WorkMedia from "~/components/Work/WorkMedia.vue";
   import Card from "~/components/Card.vue";
 
   export default {
 
-    components: { DynamicMarkdown, WorkMedia, Card },
+    components: { DynamicMarkdown, WorkMedia, Card, LangSwitcher },
 
     head () {
       return {
@@ -63,8 +64,8 @@
     data () {
       let mainImageUrl = require("@/assets/images/work/" + this.$route.params.slug + "/_main.jpg");
       return {
-        work: this.searchArray(this.$route.params.slug, this.$store.state[this.$store.state.locale].works),
-        relatedWorks: this.$store.state[this.$store.state.locale].works,
+        work: this.searchArray(this.$route.params.slug, this.$store.state[this.$i18n.locale].works),
+        relatedWorks: this.$store.state[this.$i18n.locale].works,
         objImageUrl: {
           src: mainImageUrl,
           loading: mainImageUrl.placeholder

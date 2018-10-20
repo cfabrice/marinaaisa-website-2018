@@ -63,8 +63,8 @@
     data () {
       let mainImageUrl = require("@/assets/images/blog/" + this.$route.params.slug + "/_main.jpg");
       return {
-        blog: this.searchArray(this.$route.params.slug, this.$store.state[this.$store.state.locale].blogs),
-        relatedblogs: this.$store.state[this.$store.state.locale].blogs,
+        blog: this.searchArray(this.$route.params.slug, this.$store.state[this.$i18n.locale].blogs),
+        relatedblogs: this.$store.state[this.$i18n.locale].blogs,
         objImageUrl: {
           src: mainImageUrl,
           loading: mainImageUrl.placeholder

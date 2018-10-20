@@ -1,5 +1,6 @@
 const builtAt = new Date().toISOString();
 const path = require('path');
+const { I18N } = require('./locales/i18n-nuxt-config');
 
 const buildLocale = process.env.BUILD_LOCALE || 'en';
 const isProd = process.env.NODE_ENV === 'production';
@@ -122,7 +123,8 @@ module.exports = {
         '@/assets/css/utilities/_helpers.scss',
         '@/assets/css/base/_grid.scss',
         '@/assets/css/base/_buttons.scss'
-    ]]
+    ]],
+    ['nuxt-i18n', I18N]
   ],
   generate: {
     fallback: true,

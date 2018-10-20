@@ -36,7 +36,7 @@
 
     data () {
       return {
-        locale: this.$store.state.locale,
+        locale: this.$i18n.locale,
         clicked: false,
         pos: process.env.buildLocale === "en" ? 12 : 30
       }

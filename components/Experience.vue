@@ -3,10 +3,10 @@
     <li :class="`experience__item ${isActive}`">
       <div class="experience__time-place">
         <div class="experience__place">
-          {{ item.place }}
+          {{ $t(`workExperience.${item.id}.company`) }}
         </div>
         <div class="experience__time">
-          {{ item.startingTime }} - <span :class="isActive">{{ item.finishTime }}</span>
+          {{ $t(`workExperience.${item.id}.starting_time`) }} - <span :class="isActive">{{ item.finishTime }}</span>
         </div>
       </div>
       <div class="experience__image">

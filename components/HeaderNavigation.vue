@@ -11,17 +11,14 @@
         :class="{ active: $route.path == '/about' }">
         About
       </nuxt-link>
-      <locale-switcher />
     </nav>
   </header>
 </template>
 
 <script lang="js">
   import Vue from "vue";
-  import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 
   export default {
-    components: { LocaleSwitcher },
 
     data () {
       return {

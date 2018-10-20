@@ -1,5 +1,6 @@
 <template>
   <div class="page-index">
+    <LangSwitcher />
     <div class="hero" id="hero">
     	<div class="hero__content">
         <ImageResponsive
@@ -16,7 +17,7 @@
     	</div>
     </div>
     <div class="container">
-      <h2>Portfolio</h2>
+      <h2>Portfolio eey lo quasdad</h2>
       <div id="works">
         <card
           v-for="work in works"
@@ -31,9 +32,10 @@
           :work="work"
           :isWork="false" />
       </div>
+      <p> {{ $t('hi') }}</p>
       <Experience
         v-for="item in workExperience"
-        :key="item.place"
+        :key="item.name"
         :item="item"
         :isWork="true"
       />
@@ -42,16 +44,17 @@
 </template>
 
 <script lang="js">
+  import LangSwitcher from '~/components/LangSwitcher'
   import theaterJS from 'theaterjs';
   import createStore from '~/store/index';
   import Card from "~/components/Card.vue";
   import ImageResponsive from "~/components/Image.vue";
   import Experience from "~/components/Experience.vue";
-  import workExperience from '@/contents/workexperience.json';
+  import workExperience from '@/contents/workexperience.js';
 
   export default {
 
-    components: { Card, ImageResponsive, Experience },
+    components: { Card, ImageResponsive, Experience, LangSwitcher },
 
     head () {
       return {
@@ -69,11 +72,18 @@
     },
 
     data () {
-      const store = this.$store.state[this.$store.state.locale];
+      const store = this.$store.state[this.$i18n.locale];
       return {
         works: store.works,
         blogs: store.blogs,
-        workExperience: workExperience,
+        workExperience: [
+          {
+            id: 'thedream',
+            finish_time: 'today',
+            active: true,
+            image: 'thedream'
+          }
+        ]
       }
 
     },
@@ -111,10 +121,13 @@
           }
         })
 
-      theater
-        .addActor('hero-text-content', { speed: .9, accuracy: 1 })
-        .addScene('hero-text-content: Hi! I\'m <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aisa</a>', 600, ', <br> a product designer.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -17, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
-        .addScene(theater.replay.bind(theater))
+      theater.addActor('hero-text-content', { speed: .9, accuracy: 1 })
+      if (this.$i18n.locale == 'en') {
+        theater.addScene('hero-text-content: Hi! I\'m <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aisa</a>', 600, ', <br> a product designer.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -17, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
+      } else {
+        theater.addScene('hero-text-content: Hola, soy <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aisa</a>', 600, ', <br> diseñadora de producto.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -17, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
+      }
+      theater.addScene(theater.replay.bind(theater))
     }
   }
 </script>
