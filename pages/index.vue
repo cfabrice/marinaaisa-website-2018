@@ -33,12 +33,14 @@
           :isWork="false" />
       </div>
       <p> {{ $t('hi') }}</p>
-      <Experience
-        v-for="item in workExperience"
-        :key="item.name"
-        :item="item"
-        :isWork="true"
-      />
+      <ul class="experience__content">
+        <Experience
+          v-for="item in workExperience"
+          :key="item.name"
+          :item="item"
+          :isWork="true"
+        />
+      </ul>
     </div>
   </div>
 </template>
@@ -50,7 +52,6 @@
   import Card from "~/components/Card.vue";
   import ImageResponsive from "~/components/Image.vue";
   import Experience from "~/components/Experience.vue";
-  import workExperience from '@/contents/workexperience.js';
 
   export default {
 
@@ -78,10 +79,29 @@
         blogs: store.blogs,
         workExperience: [
           {
+            id: 'holaluz',
+            name: 'Holaluz',
+            isActive: true
+          },
+          {
             id: 'thedream',
-            finish_time: 'today',
-            active: true,
-            image: 'thedream'
+            name: 'The Dream VR'
+          },
+          {
+            id: 'marsbased',
+            name: 'MarsBased'
+          },
+          {
+            id: 'midealab',
+            name: 'Midealab'
+          },
+          {
+            id: 'microsoft',
+            name: 'Microsoft'
+          },
+          {
+            id: 'fastmonkeys',
+            name: 'FastMonkeys'
           }
         ]
       }
@@ -137,6 +157,7 @@
 width: 100%;
 background: $background-secondary;
 text-align: center;
+height: 488px;
 position: relative;
 
 .hero__content {
@@ -190,7 +211,6 @@ position: relative;
 .hero__image {
   height: 90px;
   width: auto;
-  @include margin-bottom(50px);
 
   svg {
     opacity: .2;

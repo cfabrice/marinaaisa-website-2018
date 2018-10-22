@@ -1,37 +1,45 @@
 <template lang="html">
-  <div class="experience">
-    <li :class="`experience__item ${isActive}`">
-      <div class="experience__time-place">
-        <div class="experience__place">
-          {{ $t(`workExperience.${item.id}.company`) }}
-        </div>
-        <div class="experience__time">
-          {{ $t(`workExperience.${item.id}.starting_time`) }} - <span :class="isActive">{{ item.finishTime }}</span>
-        </div>
+  <li :class="`experience__item experience__item--${isActive}`">
+    <div class="experience__time-place">
+      <div class="experience__place">
+        {{ $t(`workExperience.${item.id}.place`) }}
       </div>
-      <div class="experience__image">
-        <img class="img-circle img-responsive" :src="`images/work-experience/${item.imageURL}.png`" :alt="item.company">
+      <div class="experience__time">
+        {{ $t(`workExperience.${item.id}.startingTime`) }} - <span :class="isActive">{{ $t(`workExperience.${item.id}.finishTime`) }}</span>
       </div>
-      <div class="experience__panel">
-        <div class="experience__position">
-          <h4>{{ item.position }} —
-          <a target="_blank" :href="item.companyURL" class="experience__company ani">
-            <span>{{ item.company }}</span>
-          </a>
-        </h4>
-        </div>
-        <div class="experience__description">
-          <p>
-            {{ item.description }} Here is where I learnt <span class="experience__learnt">{{ item.learnt }}</span>
-          </p>
-        </div>
+    </div>
+    <div class="experience__image">
+      <ImageResponsive
+        :imageURL="`work-experience/${item.id}.png`"
+        :classes="'img-circle img-responsive'"
+        :width="'79'"
+        :height="'79'"
+        :radius="true"
+        :alt="$t('workExperience.alt') + item.name" />
+    </div>
+    <div class="experience__panel">
+      <div class="experience__position">
+        <h4>{{ $t(`workExperience.${item.id}.position`) }} —
+        <a target="_blank" :href="$t(`workExperience.${item.id}.companyurl`)" class="experience__company ani">
+          <span>{{ item.name }}</span>
+        </a>
+      </h4>
       </div>
-    </li>
-  </div>
+      <div class="experience__description">
+        <p>
+          {{ $t(`workExperience.${item.id}.description`) }} {{ $t(`workExperience.hereIlearnt`) }} <span class="experience__learnt">{{ $t(`workExperience.${item.id}.learnt`) }}</span>
+        </p>
+      </div>
+    </div>
+  </li>
 </template>
 
 <script>
+import ImageResponsive from "~/components/Image.vue";
+
 export default {
+  components: { ImageResponsive },
+
   props: {
     item: {
       type: Object
@@ -39,7 +47,7 @@ export default {
   },
   computed: {
     isActive () {
-      this.item.isActive ? 'active' : '';
+      return this.item.isActive ? 'active' : '';
     }
   }
 }
@@ -49,6 +57,12 @@ export default {
 .experience {
   position: relative;
   padding: 0;
+
+  &__item {
+    @media (min-width: $screen-sm){
+      display: flex;
+    }
+  }
 
   &__content {
     vertical-align: middle;
@@ -94,11 +108,12 @@ export default {
   }
 
   &__time-place {
-    // // @include make-sm-column(2, 0);
+    width: 100%;
     padding-top: 1.5rem;
     margin-bottom: 1rem;
     @media (min-width: $screen-sm){
       margin-bottom: 0;
+      width: 16.66667%;
     }
   }
   &__time {
@@ -108,19 +123,24 @@ export default {
   }
 
   &__panel {
-    // @include make-sm-column(9, 0);
     position: relative;
-    width: 100%;
     padding: 0;
     text-align: left;
     @media (min-width: $screen-sm){
       padding: 0 0 0 2.7rem;
+      width: 75%;
     }
   }
   &__image {
     position: relative;
-    // @include make-column(2, 0);
-    // @include make-sm-column(1, 0);
+    width: 16.66667%;
+    height: 16.66667%;
+
+    @media (min-width: $screen-sm){
+      height: 8.33333%;
+      width: 8.33333%;
+    }
+
     &:after {
       content: " ";
       display: block;
@@ -144,9 +164,7 @@ export default {
       width: 100%;
       height: auto;
       margin-left: 0;
-      border-radius: 100%;
       text-align: center;
-      float: left;
     }
   }
   &__position,
