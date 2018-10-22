@@ -55,7 +55,6 @@ $grid-breakpoint:     $screen-md;
   min-height: 1px;
   padding-left:  ($gutter / 2);
   padding-right: ($gutter / 2);
-  @include last-margin;
 }
 
 @mixin make-clear($columns, $clean: 0 ){
@@ -98,7 +97,7 @@ $grid-breakpoint:     $screen-md;
   @media (min-width: $screen-xs) {
     float: left;
     width: percentage(($columns / $grid-columns));
-    @include last-margin;
+
   }
 }
 
@@ -135,7 +134,7 @@ $grid-breakpoint:     $screen-md;
   @media (min-width: $screen-sm) {
     float: left;
     width: percentage(($columns / $grid-columns));
-    @include last-margin;
+
   }
 }
 
@@ -172,7 +171,7 @@ $grid-breakpoint:     $screen-md;
   @media (min-width: $screen-md) {
     float: left;
     width: percentage(($columns / $grid-columns));
-    @include last-margin;
+
   }
 }
 
@@ -209,7 +208,7 @@ $grid-breakpoint:     $screen-md;
   @media (min-width: $screen-lg) {
     float: left;
     width: percentage(($columns / $grid-columns));
-    @include last-margin;
+
   }
 }
 
@@ -263,7 +262,7 @@ $grid-breakpoint:     $screen-md;
   }
   #{$list} {
     float: left;
-    @include last-margin;
+
   }
 }
 
