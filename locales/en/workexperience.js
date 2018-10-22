@@ -1,11 +1,58 @@
 export default {
+  hereIlearnt: 'Here is where I learnt:',
+  alt: 'Marina Aisa working at ',
+  holaluz: {
+    companyurl: 'https://www.holaluz.com/',
+    position: 'UX Engineer',
+    description: 'Mix of UX/UI Designer and Front-End Developer at Holaluz, a 100% renewable and online power company in Spain.',
+    learnt: "#ProductDesign #Front-endDevelopment",
+    place: 'Barcelona, ESP',
+    startingTime: 'Oct’17',
+    finishTime: 'today'
+  },
   thedream: {
-    company: 'The Dream VR',
     companyurl: 'http://thedreamvr.com/',
     position: 'VR / Mobile Product Designer',
     description: 'The Dream VR is the first Virtual Reality and 360º TV in the world.',
     learnt: "#VR #VRDesign #UnityGraphics #A-Frame #VRPrototyping",
     place: 'Barcelona, ESP',
-    starting_time: 'Feb’17'
+    startingTime: 'Feb’17',
+    finishTime: 'Oct’17'
+  },
+  marsbased: {
+    companyurl: 'https://marsbased.com/',
+    position: 'UI/UX Designer & Front-End Developer',
+    description: 'MarsBased is a development consultancy from Barcelona offering end‑to‑end web & mobile apps.',
+    learnt: "#SCSS #Middleman #BEM #Ionic #git #SASS #AtomicDesign #RemoteWork #QualityOfCode",
+    place: 'Barcelona, ESP & Brussels, BEL',
+    startingTime: 'Jun’16',
+    finishTime: 'Feb’17'
+  },
+  midealab: {
+    companyurl: 'https://www.midealab.co/',
+    position: 'UI/UX Designer & Front-End Developer',
+    description: 'Midealab is a venture builder company with studios in Helsinki, Tallin and Lviv.',
+    learnt: '#HTML #CSS #ProductDesign',
+    place: 'Helsinki, FIN',
+    startingTime: 'Jan´16',
+    finishTime: 'Jun´16'
+  },
+  microsoft: {
+    companyurl: 'https://www.midealab.co/',
+    position: 'UI/UX Designer & Front-End Developer',
+    description: 'Midealab is a venture builder company with studios in Helsinki, Tallin and Lviv.',
+    learnt: '#HTML #CSS #ProductDesign',
+    place: 'Helsinki, FIN',
+    startingTime: 'Jan´16',
+    finishTime: 'Jun´16'
+  },
+  fastmonkeys: {
+    companyurl: 'http://www.fastmonkeys.com/',
+    position: 'UI/UX Designer',
+    description: 'FastMonkeys is a python development company offering web & mobile apps.',
+    learnt: '#UI/UXdesign #HowToStudyandWorkWhileYouAreAbroad',
+    place: 'Helsinki, FIN',
+    startingTime: 'Dic’13',
+    finishTime: 'Dic’15'
   }
 }
