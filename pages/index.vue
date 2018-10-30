@@ -38,7 +38,15 @@
           v-for="item in workExperience"
           :key="item.name"
           :item="item"
-          :isWork="true"
+          :type="'workExperience'"
+        />
+      </ul>
+      <ul class="experience__content">
+        <Experience
+          v-for="item in education"
+          :key="item.name"
+          :item="item"
+          :type="'education'"
         />
       </ul>
     </div>
@@ -102,6 +110,20 @@
           {
             id: 'fastmonkeys',
             name: 'FastMonkeys'
+          }
+        ],
+        education: [
+          {
+            id: 'selfLearning',
+            noStartingTime: true,
+            isActive: true,
+            noURL: true
+          },
+          {
+            id: 'hkust'
+          },
+          {
+            id: 'metropolia'
           }
         ]
       }

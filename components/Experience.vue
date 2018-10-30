@@ -2,32 +2,34 @@
   <li :class="`experience__item experience__item--${isActive}`">
     <div class="experience__time-place">
       <div class="experience__place">
-        {{ $t(`workExperience.${item.id}.place`) }}
+        {{ $t(`${type}.${item.id}.place`) }}
       </div>
       <div class="experience__time">
-        {{ $t(`workExperience.${item.id}.startingTime`) }} - <span :class="isActive">{{ $t(`workExperience.${item.id}.finishTime`) }}</span>
+        <span v-if="!item.noStartingTime">{{ $t(`${type}.${item.id}.startingTime`) }} - </span><span :class="isActive">{{ $t(`${type}.${item.id}.finishTime`) }}</span>
       </div>
     </div>
     <div class="experience__image">
       <ImageResponsive
-        :imageURL="`work-experience/${item.id}.png`"
+        :imageURL="`${type}/${item.id}.png`"
         :classes="'img-circle img-responsive'"
         :width="'79'"
         :height="'79'"
         :radius="true"
-        :alt="$t('workExperience.alt') + item.name" />
+        :alt="$t(`${type}.alt`) + item.name" />
     </div>
     <div class="experience__panel">
       <div class="experience__position">
-        <h4>{{ $t(`workExperience.${item.id}.position`) }} —
-        <a target="_blank" :href="$t(`workExperience.${item.id}.companyurl`)" class="experience__company ani">
-          <span>{{ item.name }}</span>
+        <h4>{{ $t(`${type}.${item.id}.position`) }} —
+        
+        <a v-if="!item.noURL" target="_blank" :href="$t(`${type}.${item.id}.url`)" class="experience__company ani">
+          <span>{{ $t(`${type}.${item.id}.name`) }}</span>
         </a>
+        <span v-else >{{ $t(`${type}.${item.id}.name`) }}</span>
       </h4>
       </div>
       <div class="experience__description">
         <p>
-          {{ $t(`workExperience.${item.id}.description`) }} {{ $t(`workExperience.hereIlearnt`) }} <span class="experience__learnt">{{ $t(`workExperience.${item.id}.learnt`) }}</span>
+          {{ $t(`${type}.${item.id}.description`) }} {{ $t(`${type}.hereIlearnt`) }} <span class="experience__learnt">{{ $t(`${type}.${item.id}.learnt`) }}</span>
         </p>
       </div>
     </div>
@@ -43,6 +45,9 @@ export default {
   props: {
     item: {
       type: Object
+    },
+    type: {
+      type: String
     }
   },
   computed: {
