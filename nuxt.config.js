@@ -130,10 +130,11 @@ module.exports = {
     fallback: true,
     subFolders: false,
     routes: [
-      '/about',
-      '/contact',
+      '/es'
     ]
     .concat(works.map(w => `/work/${w}`))
+    .concat(works.map(w => `es/trabajo/${w}`))
     .concat(blogs.map(w => `/blog/${w}`))
+    .concat(blogs.map(w => `es/blog/${w}`))
   }
 }
