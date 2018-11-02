@@ -1,12 +1,11 @@
 export default {
-  hereIlearnt: 'Here is where I learnt:',
-  atTheMomentImLearning: "At the moment I'm learning",
+  title: 'Education',
   alt: 'Marina Aisa studying at ',
   selfLearning: {
     name: 'From each job, class, co-worker, book, article, meet-up or life experience',
     position: 'Self-learner',
     description: 'This is how I learnt the 80% of what I know now and how I improve it.',
-    learnt: "#ProductDesign #Prototyping #Coding",
+    learnt: "#VueJS #Nuxt",
     place: 'Everywhere',
     finishTime: 'Always'
   },

@@ -116,7 +116,7 @@ module.exports = {
       });
     }
   },
-  plugins: ['~/plugins/lazyload'],
+  plugins: ['~/plugins/lazyload', '~/plugins/globalComponents'],
   modules: [
     ['nuxt-sass-resources-loader', [
         '@/assets/css/utilities/_variables.scss',

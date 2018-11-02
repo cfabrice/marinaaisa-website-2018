@@ -29,7 +29,10 @@
       </div>
       <div class="experience__description">
         <p>
-          {{ $t(`${type}.${item.id}.description`) }} {{ $t(`${type}.hereIlearnt`) }} <span class="experience__learnt">{{ $t(`${type}.${item.id}.learnt`) }}</span>
+          {{ $t(`${type}.${item.id}.description`) }} 
+          <span v-if="isActive">{{ $t(`atTheMomentImLearning`) }} </span>
+          <span v-else>{{ $t(`hereIlearnt`) }} </span>
+          <span class="experience__learnt">{{ $t(`${type}.${item.id}.learnt`) }}</span>
         </p>
       </div>
     </div>
@@ -37,11 +40,7 @@
 </template>
 
 <script>
-import ImageResponsive from "~/components/Image.vue";
-
 export default {
-  components: { ImageResponsive },
-
   props: {
     item: {
       type: Object

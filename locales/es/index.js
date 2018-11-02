@@ -1,11 +1,12 @@
 import workExperience from './workexperience'
+import education from './education'
+import about from './about'
 
 export default {
-  hi: 'holaee',
   posts: 'Artículos',
-  about: 'Sobre nosotros',
+  about: about,
   workExperience: workExperience,
-  homepage: {
-    subtitle: 'Demostración nuxt-i18n'
-  }
+  education: education,
+  hereIlearnt: 'Aquí es donde aprendí:',
+  atTheMomentImLearning: "En este momento estoy aprendiendo:"
 }

@@ -1,8 +1,9 @@
 export default {
-  hereIlearnt: 'Aquí es donde aprendí:',
+  title: 'Experiencia laboral',
   alt: 'Marina Aisa trabajando en ',
   holaluz: {
-    companyurl: 'https://www.holaluz.com/',
+    name: 'Holaluz',
+    url: 'https://www.holaluz.com/',
     position: 'Ingeniera UX',
     description: 'Mezcla de diseñadora UX/UX y desarrolladora Front-End en Holaluz, la compañía electrica líder en energía renovable en España.',
     learnt: "#ProductDesign #Front-endDevelopment",
@@ -11,8 +12,9 @@ export default {
     finishTime: 'hasta hoy'
   },
   thedream: {
-    companyurl: 'http://thedreamvr.com/',
-    position: 'VR / Mobile Product Designer',
+    name: 'The Dream VR',
+    url: 'http://thedreamvr.com/',
+    position: 'Diseñadora de producto VR y Mobile',
     description: 'The Dream VR es la primera televisón en Realidad Virtual del mundo.',
     learnt: "#VR #VRDiseño #A-Frame #VRPrototipado",
     place: 'Barcelona, ESP',
@@ -20,7 +22,8 @@ export default {
     finishTime: 'Oct’17'
   },
   marsbased: {
-    companyurl: 'https://marsbased.com/',
+    name: 'MarsBased',
+    url: 'https://marsbased.com/es',
     position: 'UI/UX Designer & Front-End Developer',
     description: 'MarsBased es una consultura informática para webs y apps de Barcelona expecializada en Ruby on Rails.',
     learnt: "#SCSS #Middleman #BEM #Ionic #git #SASS #AtomicDesign #RemoteWork #QualityOfCode",
@@ -29,28 +32,31 @@ export default {
     finishTime: 'Feb’17'
   },
   midealab: {
-    companyurl: 'https://www.midealab.co/',
+    name: 'Midealab',
+    url: 'https://www.midealab.co/',
     position: 'UI/UX Designer & Front-End Developer',
-    description: 'Midealab is a venture builder company with studios in Helsinki, Tallin and Lviv.',
+    description: 'Midealab es una compañia que desarrolla productos web y mobile propios con sede en Helsinki, Tallin y Lviv.',
     learnt: '#HTML #CSS #ProductDesign',
     place: 'Helsinki, FIN',
-    startingTime: 'Jan´16',
+    startingTime: 'Ene´16',
     finishTime: 'Jun´16'
   },
   microsoft: {
-    companyurl: 'https://www.midealab.co/',
-    position: 'UI/UX Designer & Front-End Developer',
-    description: 'Midealab is a venture builder company with studios in Helsinki, Tallin and Lviv.',
-    learnt: '#HTML #CSS #ProductDesign',
+    name: 'Microsoft',
+    url: 'https://www.microsoft.com/es',
+    position: 'Becaria en diseño de producto',
+    description: 'Me incorporé como becaria al equipo de diseño UX e Interacción de Microsoft en Nokia House después de ser contratada por Nokia.',
+    learnt: '#UXdesign #ProductDesign #Corporate',
     place: 'Helsinki, FIN',
-    startingTime: 'Jan´16',
-    finishTime: 'Jun´16'
+    startingTime: 'May’14',
+    finishTime: 'Oct’14'
   },
   fastmonkeys: {
-    companyurl: 'http://www.fastmonkeys.com/',
-    position: 'UI/UX Designer',
-    description: 'FastMonkeys is a python development company offering web & mobile apps.',
-    learnt: '#UI/UXdesign #HowToStudyandWorkWhileYouAreAbroad',
+    name: 'FastMonkeys',
+    url: 'http://www.fastmonkeys.com/',
+    position: 'Diseñadora UI/UX',
+    description: 'FastMonkeys es una consultoría de Python que ofrece soluciones web y mobile.',
+    learnt: '#DiseñoUI/UX #CómoEstudiarYTrabajarEnElExtranjero',
     place: 'Helsinki, FIN',
     startingTime: 'Dic’13',
     finishTime: 'Dic’15'

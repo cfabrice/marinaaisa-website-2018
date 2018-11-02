@@ -1,13 +1,12 @@
 import workExperience from './workexperience'
 import education from './education'
+import about from './about'
 
 export default {
-  hi: 'holaaaavengsdjjj ajwhajeha a',
   posts: 'Artículos',
-  about: 'Sobre nosotros',
+  about: about,
   workExperience: workExperience,
   education: education,
-  homepage: {
-    subtitle: 'Demostración nuxt-i18n'
-  }
+  hereIlearnt: 'Here is where I learnt:',
+  atTheMomentImLearning: "At the moment I'm learning"
 }

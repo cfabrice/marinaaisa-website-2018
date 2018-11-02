@@ -1,5 +1,5 @@
 export default {
-  hereIlearnt: 'Here is where I learnt:',
+  title: 'Work Experience',
   alt: 'Marina Aisa working at ',
   holaluz: {
     name: 'Holaluz',
@@ -44,9 +44,9 @@ export default {
   microsoft: {
     name: 'Microsoft',
     url: 'https://www.midealab.co/',
-    position: 'UI/UX Designer & Front-End Developer',
-    description: 'Midealab is a venture builder company with studios in Helsinki, Tallin and Lviv.',
-    learnt: '#HTML #CSS #ProductDesign',
+    position: 'Product Design Intern',
+    description: 'I joined the Microsoft’s UX and Interaction design team at Nokia House after being hired by Nokia.',
+    learnt: '#UXdesign #ProductDesign #Corporate',
     place: 'Helsinki, FIN',
     startingTime: 'May’14',
     finishTime: 'Oct’14'
