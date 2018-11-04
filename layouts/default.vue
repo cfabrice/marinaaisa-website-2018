@@ -1,43 +1,15 @@
 <template>
   <div>
+    <LangSwitcher />
     <nuxt/>
-    <footer>
-      <div id="exposures">
-        <div class="mainExposures">
-          <a
-            v-for="exp in mainExposures"
-            :key="exp[0]"
-            :href="exp[1]"
-            target="_blank">
-            <svg-icon :name="exp[0]" />
-          </a>
-        </div>
-      </div>
-      <div id="copyright">
-      </div>
-    </footer>
+    <Footer />
   </div>
 </template>
-
-<script lang="js">
-  import Vue from "vue";
-
-  import HeaderNavigation from "~/components/HeaderNavigation.vue";
-  import SvgIcon from "~/components/SvgIcon.vue";
+<script>
+  import LangSwitcher from '~/components/LangSwitcher'
+  import Footer from '~/components/Sections/Footer'
 
   export default {
-    components: { HeaderNavigation, SvgIcon },
-
-    data () {
-      return {
-        mainExposures: [
-          ["twitter", "https://twitter.com/marinaaisa"]
-        ]
-      }
-    }
+    components: { LangSwitcher, Footer }
   }
 </script>
-
-<style lang="scss">
-
-</style>
