@@ -11,7 +11,7 @@
           </p>
         </div>
         <div class="map__map">
-          <Map :visited="this.visited"/>
+          <Map :visited="this.visited" :lived="this.lived"/>
         </div>
       </div>
     </div>
@@ -24,7 +24,12 @@ export default {
   data () {
     return {
       visited: [
-        'ES', 'FR'
+        'AT', 'PL', 'KH', 'DK', 'BG', 'CZ', 'EE', 'FR', 'DE', 'EE',
+        'FR', 'DE', 'HU', 'IE', 'IT', 'NL', 'NO', 'RU', 'SE', 'CH',
+        'UA', 'US', 'GB', 'ID', 'MY', 'TH', 'VN'
+      ],
+      lived: [
+        'ES', 'FI', 'CN', 'BE'
       ]
     }
   }
