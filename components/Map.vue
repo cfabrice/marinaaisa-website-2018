@@ -199,16 +199,16 @@ export default {
 	},
   computed: {
     fillVisited () {
-      for (var i = 0; i < this.visited.length; i++) {
-				const tooltipSpan = document.getElementById(this.visited[i])
+			this.visited.forEach((visitedCountry) => {
+				const tooltipSpan = document.getElementById(visitedCountry)
 				tooltipSpan.classList.add("visited")
-      }
+			})
 		},
 		fillLived () {
-      for (var i = 0; i < this.lived.length; i++) {
-				const tooltipSpan = document.getElementById(this.lived[i])
+			this.lived.forEach((livedCountry) => {
+				const tooltipSpan = document.getElementById(livedCountry)
 				tooltipSpan.classList.add("lived")
-      }
+			})
 		}
   },
   mounted() {
@@ -220,19 +220,22 @@ export default {
 			const countryId = event.target.id
 			const countryTitle = document.getElementById(countryId).getAttribute("title")
 			const tooltip = document.getElementById("tooltip")
+			const countries = [ ...this.visited, ...this.lived ]
 
-			for (var i = 0; i < (this.visited.length + this.lived.length); i++) {
-				if (countryId === this.visited[i] || countryId === this.lived[i]) {
-					const x = event.clientX
-					const y = event.clientY
-
-					tooltip.style.left = (x + 20) + "px"
-					tooltip.style.top = (y - 20) + "px"
-					tooltip.innerHTML = countryTitle
-					return tooltip.classList.add("active")
+			countries.every((country) => {
+				if (countryId !== country) {
+					tooltip.classList.remove("active")
+					return true
 				}
-			}
-			return tooltip.classList.remove("active")
+
+				const x = event.clientX
+				const y = event.clientY
+
+				tooltip.style.left = (x + 20) + "px"
+				tooltip.style.top = (y - 20) + "px"
+				tooltip.innerHTML = countryTitle
+				tooltip.classList.add("active")
+			})
     }
 	}
 }
@@ -275,5 +278,3 @@ export default {
 	}
 }
 </style>
-
-
