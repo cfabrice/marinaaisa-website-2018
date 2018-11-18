@@ -1,16 +1,16 @@
 <template>
   <section class="blogSelected">
-    <div class="overflowhidden">
-      <div
-        class="blogSelected-horizontalImage"
-        v-lazy:background="objImageUrl" />
-      </div>
-    </div>
-    <div class="outerMoat">
+    <div class="intro">
+      <ImageResponsive
+        :imageURL="'blog/' + this.$route.params.slug + '/_main.jpg'"
+        :width="'50%'"
+        :alt="'Blog picture'" />
       <h1>
         {{ blog.title }}
         <span class="blogSelected-year">{{ blog.year }}</span>
       </h1>
+    </div>
+    <div>
       <p>{{ blog.description }}</p>
       <dl class="blogSelected-meta">
         <dt>Product Owner</dt>
@@ -118,6 +118,9 @@
     opacity: 1;
     background-repeat: no-repeat!important;
     background-size: contain!important;
+  }
+  .intro {
+    display: flex;
   }
 }
 </style>

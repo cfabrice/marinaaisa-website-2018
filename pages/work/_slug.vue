@@ -1,35 +1,36 @@
 <template>
   <section class="workSelected">
-    <LangSwitcher />
-    <div class="overflowhidden">
-      <div
-        class="workSelected-horizontalImage"
-        v-lazy:background="objImageUrl" />
+    <div class="container">
+      <div class="overflowhidden">
+        <div
+          class="workSelected-horizontalImage"
+          v-lazy:background="objImageUrl" />
+        </div>
       </div>
-    </div>
-    <div class="outerMoat">
-      <h1>
-        {{ work.title }}
-        <span class="workSelected-year">{{ work.year }}</span>
-      </h1>
-      <p>{{ work.description }}</p>
-      <dl class="workSelected-meta">
-        <dt>Product Owner</dt>
-        <dd>{{ work.owner }}</dd>
-        <dt>Product Role</dt>
-        <dd>{{ work.role }}</dd>
-      </dl>
-      <DynamicMarkdown
-        :render-func="work.renderFunc"
-        :static-render-funcs="work.staticRenderFuncs" />
-      <div id="relatedWorks">
-        <span class="relatedWorks-header">"See more"</span>
-        <div class="relatedWorks-cards">
-          <card
-            v-for="work in relatedWorks"
-            :key="work.name"
-            :work="work"
-            :isWork="true" />
+      <div class="outerMoat">
+        <h1>
+          {{ work.title }}
+          <span class="workSelected-year">{{ work.year }}</span>
+        </h1>
+        <p>{{ work.description }}</p>
+        <dl class="workSelected-meta">
+          <dt>Product Owner</dt>
+          <dd>{{ work.owner }}</dd>
+          <dt>Product Role</dt>
+          <dd>{{ work.role }}</dd>
+        </dl>
+        <DynamicMarkdown
+          :render-func="work.renderFunc"
+          :static-render-funcs="work.staticRenderFuncs" />
+        <div id="relatedWorks">
+          <span class="relatedWorks-header">"See more"</span>
+          <div class="relatedWorks-cards">
+            <card
+              v-for="work in relatedWorks"
+              :key="work.name"
+              :work="work"
+              :isWork="true" />
+          </div>
         </div>
       </div>
     </div>
@@ -37,14 +38,13 @@
 </template>
 
 <script lang="js">
-  import LangSwitcher from '~/components/LangSwitcher'
   import DynamicMarkdown from "~/components/Work/DynamicMarkdown.vue";
   import WorkMedia from "~/components/Work/WorkMedia.vue";
   import Card from "~/components/Card.vue";
 
   export default {
 
-    components: { DynamicMarkdown, WorkMedia, Card, LangSwitcher },
+    components: { DynamicMarkdown, WorkMedia, Card },
 
     head () {
       return {

@@ -3,7 +3,7 @@ import education from './education'
 import about from './about'
 
 export default {
-  changeLanguage: 'Change language to ',
+  changeLanguage: 'Change to English language',
   posts: 'Artículos',
   home: 'Inicio',
   about: about,

@@ -5,7 +5,7 @@
       :key="i"
       :to="switchLocalePath(locale.code)">
       <button>
-        {{ $t('changeLanguage') }}{{ locale.name }}
+        {{ $t('changeLanguage') }}
       </button>
     </nuxt-link>
   </span>
