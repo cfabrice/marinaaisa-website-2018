@@ -4,7 +4,9 @@
       v-for="(locale, i) in showLocales"
       :key="i"
       :to="switchLocalePath(locale.code)">
-      {{ locale.name }}
+      <button>
+        {{ $t('changeLanguage') }}{{ locale.name }}
+      </button>
     </nuxt-link>
   </span>
 </template>

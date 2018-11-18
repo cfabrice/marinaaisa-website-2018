@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2>Portfolio eey lo quasdad</h2>
+    <h2>{{ $t('posts') }}</h2>
     <div id="blogs">
       <card
         v-for="blog in blogs"

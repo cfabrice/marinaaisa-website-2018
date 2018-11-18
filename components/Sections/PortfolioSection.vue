@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2>Portfolio eey lo quasdad</h2>
+    <h2>Portfolio</h2>
     <div id="works">
       <card
         v-for="work in works"

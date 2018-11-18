@@ -52,8 +52,11 @@ export default {
   width: 100%;
   background: $background-secondary;
   text-align: center;
-  height: 488px;
   position: relative;
+  
+  @media (min-width: $screen-md){
+    height: 488px;
+  }
 
   .hero__content {
     vertical-align: middle;

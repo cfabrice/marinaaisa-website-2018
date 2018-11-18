@@ -69,3 +69,36 @@ img{
 .disabled {
   cursor: not-allowed;
 }
+
+section {
+  margin-bottom: 7.2rem;
+}
+
+button {
+  display: inline-block;
+  border: 1px solid $primary;
+  padding: 1rem 2rem;
+  margin: 0;
+  background-color: transparent;
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover {
+  border-color: $primary;
+  background-color: $primary;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.99);
+}

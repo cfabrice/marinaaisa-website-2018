@@ -70,6 +70,7 @@ module.exports = {
   ** Build configuration
   */
   css: [
+    'normalize.css/normalize.css',
     '@/assets/css/main.scss'
   ],
 
