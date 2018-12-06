@@ -45,6 +45,7 @@ export default {
 
 .image-placeholder {
   overflow: hidden;
+  line-height: 0;
 
   &--radius {
     border-radius: 100%;
