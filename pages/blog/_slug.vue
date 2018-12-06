@@ -36,7 +36,7 @@
 </template>
 
 <script lang="js">
-
+  
   import DynamicMarkdown from "~/components/Work/DynamicMarkdown.vue";
   import blogMedia from "~/components/Work/WorkMedia.vue";
   import Card from "~/components/Card.vue";
@@ -61,20 +61,18 @@
     },
 
     data () {
-      let mainImageUrl = require("@/assets/images/blog/" + this.$route.params.slug + "/_main.jpg");
       return {
         blog: this.searchArray(this.$route.params.slug, this.$store.state[this.$i18n.locale].blogs),
-        relatedblogs: this.$store.state[this.$i18n.locale].blogs,
-        objImageUrl: {
-          src: mainImageUrl,
-          loading: mainImageUrl.placeholder
-        }
+        relatedblogs: this.$store.state[this.$i18n.locale].blogs
       }
     },
 
     methods: {
-      searchArray: function (nameKey, myArray) {
+      searchArray (nameKey, myArray) {
         for (var i=0; i < myArray.length; i++) {
+          if (myArray[i].name !== nameKey) {
+              return null;
+          }
           if (myArray[i].name === nameKey) {
               return myArray[i];
           }
@@ -83,7 +81,7 @@
     },
 
     computed: {
-      ogUrl: function () {
+      ogUrl () {
         return process.env.baseUrl;
       },
       ogImage: function () {
