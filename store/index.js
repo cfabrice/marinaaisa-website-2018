@@ -1,21 +1,18 @@
-import Vuex from "vuex";
+import Vuex from "vuex"
 
-const LANGS = ["en", "es"];
-const TYPES = ["work", "blog"];
+const LANGS = ["en", "es"]
 
-const importsByLang = { en: { work: {}, blog: {} }, es: { work: {}, blog: {} } };
-
-const INITIALIZE = "INITIALIZE";
+const importsByLang = { en: { work: {}, blog: {} }, es: { work: {}, blog: {} } }
 
 const importAll = (resolve, lang, type) => {
   resolve.keys().forEach((key) => {
-    const [_, name] = key.match(/\/(.+)\.md$/);
-    importsByLang[lang][type][name] = resolve(key);
+    const [_, name] = key.match(/\/(.+)\.md$/)
+    importsByLang[lang][type][name] = resolve(key)
   });
 };
-importAll(require.context("~/contents/en/work", true, /\.md$/), "en", "work");
-importAll(require.context("~/contents/en/blog", true, /\.md$/), "en", "blog");
-importAll(require.context("~/contents/es/work", true, /\.md$/), "es", "work");
+importAll(require.context("~/contents/en/work", true, /\.md$/), "en", "work")
+importAll(require.context("~/contents/en/blog", true, /\.md$/), "en", "blog")
+importAll(require.context("~/contents/es/work", true, /\.md$/), "es", "work")
 
 const createStore = () => {
   return new Vuex.Store({
@@ -28,8 +25,8 @@ const createStore = () => {
       initializeWorksFromAttributes ({ commit }) {
         LANGS.forEach((lang) => {
           const works = Object.keys(importsByLang[lang].work).map((key) => {
-            const frontmatter = importsByLang[lang].work[key];
-            const attr = frontmatter.attributes;
+            const frontmatter = importsByLang[lang].work[key]
+            const attr = frontmatter.attributes
             return {
               name: key,
               title: attr.title,
@@ -46,11 +43,14 @@ const createStore = () => {
                 main: attr.image && attr.image.main,
                 og: attr.image && attr.image.og
               }
-            };
-          });
+            }
+          }).reduce((obj, item) => {
+            obj[item.name] = item
+            return obj
+          }, {});
           const blogs = Object.keys(importsByLang[lang].blog).map((key) => {
-            const frontmatter = importsByLang[lang].blog[key];
-            const attr = frontmatter.attributes;
+            const frontmatter = importsByLang[lang].blog[key]
+            const attr = frontmatter.attributes
             return {
               name: key,
               title: attr.title,
@@ -67,23 +67,25 @@ const createStore = () => {
                 main: attr.image && attr.image.main,
                 og: attr.image && attr.image.og
               }
-            };
-          });
-          commit(
-            INITIALIZE,
-            { works, blogs, lang }
-          );
+            }
+          }).reduce((obj, item) => {
+            obj[item.name] = item
+            return obj
+          }, {});
+          commit('initialize', {
+            works, blogs, lang
+          })
         });
       },
       async nuxtServerInit({ dispatch }) {
-        dispatch("initializeWorksFromAttributes");
+        dispatch("initializeWorksFromAttributes")
       }
     },
     mutations: {
-      [INITIALIZE](state, payload) {
-        state[payload.lang] = payload;
+      initialize (state, payload) {
+        state[payload.lang] = payload
       }
     }
   });
 };
-export default createStore;
+export default createStore

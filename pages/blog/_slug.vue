@@ -60,23 +60,11 @@
       };
     },
 
-    data () {
+    async asyncData ({params, store}) {
+      const blogs = store.state[store.state.i18n.locale].blogs
       return {
-        blog: this.searchArray(this.$route.params.slug, this.$store.state[this.$i18n.locale].blogs),
-        relatedblogs: this.$store.state[this.$i18n.locale].blogs
-      }
-    },
-
-    methods: {
-      searchArray (nameKey, myArray) {
-        for (var i=0; i < myArray.length; i++) {
-          if (myArray[i].name !== nameKey) {
-              return null;
-          }
-          if (myArray[i].name === nameKey) {
-              return myArray[i];
-          }
-        }
+        blog: blogs[params.slug],
+        relatedblogs: blogs
       }
     },
 

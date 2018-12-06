@@ -61,24 +61,20 @@
       };
     },
 
-    data () {
-      let mainImageUrl = require("@/assets/images/work/" + this.$route.params.slug + "/_main.jpg");
+    async asyncData ({params, store}) {
+      const works = store.state[store.state.i18n.locale].works
       return {
-        work: this.searchArray(this.$route.params.slug, this.$store.state[this.$i18n.locale].works),
-        relatedWorks: this.$store.state[this.$i18n.locale].works,
-        objImageUrl: {
-          src: mainImageUrl,
-          loading: mainImageUrl.placeholder
-        }
+        work: works[params.slug],
+        relatedWorks: works
       }
     },
 
-    methods: {
-      searchArray: function (nameKey, myArray) {
-        for (var i=0; i < myArray.length; i++) {
-          if (myArray[i].name === nameKey) {
-              return myArray[i];
-          }
+    data () {
+      let mainImageUrl = require("@/assets/images/work/" + this.$route.params.slug + "/_main.jpg");
+      return {
+        objImageUrl: {
+          src: mainImageUrl,
+          loading: mainImageUrl.placeholder
         }
       }
     },
