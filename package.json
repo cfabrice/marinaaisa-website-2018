@@ -10,7 +10,7 @@
   "dependencies": {
     "normalize.css": "^8.0.0",
     "nuxt": "^2.0.0",
-    "nuxt-i18n": "^5.3.0",
+    "nuxt-i18n": "^5.4.4",
     "theaterjs": "^3.2.0",
     "vue-lazyload": "^1.2.6"
   },

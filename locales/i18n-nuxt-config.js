@@ -3,6 +3,8 @@ const I18N = {
     useCookie: true,
     cookieKey: 'i18n_redirected'
   },
+  useCookie: true,
+  alwaysRedirect: true,
   locales: [
     {
       code: 'en',
