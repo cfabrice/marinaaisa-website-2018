@@ -1,12 +1,22 @@
 <template>
   <section class="blogSelected">
     <div class="intro">
+      <nuxt-link
+        v-if="blog.trans"
+        v-for="(locale, i) in showLocales"
+        :key="i"
+        :to="(locale.code == 'en' ? '' : '/' + locale.code) + '/blog/' + blog.trans">
+        <button>
+          Cambio de idioma
+        </button>
+      </nuxt-link>
       <ImageResponsive
-        :imageURL="'blog/' + this.$route.params.slug + '/_main.jpg'"
+        :imageURL="'blog/' + blog.id + '/_main.jpg'"
         :width="'50%'"
         :alt="'Blog picture'" />
       <h1>
         {{ blog.title }}
+        {{ blog.trans }}
         <span class="blogSelected-year">{{ blog.year }}</span>
       </h1>
     </div>
@@ -37,28 +47,12 @@
 
 <script lang="js">
   
-  import DynamicMarkdown from "~/components/Work/DynamicMarkdown.vue";
-  import blogMedia from "~/components/Work/WorkMedia.vue";
-  import Card from "~/components/Card.vue";
+  import DynamicMarkdown from "~/components/Work/DynamicMarkdown.vue"
+  import blogMedia from "~/components/Work/WorkMedia.vue"
+  import Card from "~/components/Card.vue"
+
 
   export default {
-
-    components: { DynamicMarkdown, blogMedia, Card },
-
-    head () {
-      return {
-        title: this.pageTitle,
-        meta: [
-          { name: "author", content: "Marina Aisa" },
-          { name: "description", property: "og:description", content: this.pageDescription, hid: "description" },
-          { property: "og:title", content: this.pageTitle },
-          { property: "og:url", content: this.ogUrl },
-          { property: "og:image", content: this.ogImage },
-          { name: "twitter:description", content: this.pageDescription },
-          { name: "twitter:image", content: this.ogImage }
-        ]
-      };
-    },
 
     async asyncData ({params, store}) {
       const blogs = store.state[store.state.i18n.locale].blogs
@@ -66,6 +60,33 @@
         blog: blogs[params.slug],
         relatedblogs: blogs
       }
+    },
+
+    nuxtI18n: {
+      seo: false
+    },
+
+    components: { DynamicMarkdown, blogMedia, Card },
+
+    head () {
+      return {
+        title: this.pageTitle,
+        htmlAttrs: {
+          lang: this.$i18n.locale,
+        },
+        meta: [
+          { name: "author", content: "Marina Aisa" },
+          { name: "description", property: "og:description", content: this.pageDescription, hid: "description" },
+          { property: "og:title", content: this.pageTitle },
+          { property: "og:url", content: this.ogUrl },
+          { property: "og:image", content: this.ogImage },
+          { name: "twitter:description", content: this.pageDescription },
+          { name: "twitter:image", content: this.ogImage },
+        ],
+        link: [
+          this.hreflang
+        ]
+      };
     },
 
     computed: {
@@ -80,6 +101,22 @@
       },
       pageDescription: function () {
         return "description";
+      },
+      showLocales () {
+        return this.$i18n.locales.filter(locale => locale.code !== this.$i18n.locale)
+      },
+      hreflang () {
+        if (!this.blog.trans) {
+          return ''
+        }
+        if (this.blog.trans) {
+          return {
+            hid: 'alternate-hreflang-' + this.showLocales[0].iso,
+            rel: 'alternate',
+            href: (this.showLocales[0].code === 'en' ? '' : this.showLocales[0].code) + '/blog/' + this.blog.trans,
+            hreflang: this.showLocales[0].code
+          }
+        }
       }
     }
   }

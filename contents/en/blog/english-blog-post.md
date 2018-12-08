@@ -1,9 +1,11 @@
 ---
-title: VR and 360º Player – Designed & Prototyped with A-Frame, WebVR framework in 360º <br> (Loading can be slow 😅 )
+title: Blog post in English
 year: 2017
 owner: The Dream VR
 role: UI Design
 colors: '#5a46ff'
+trans: 'prueba-blog'
+id: 'prueba-blog'
 description: |
   VR description.
 ---

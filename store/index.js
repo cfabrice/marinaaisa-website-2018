@@ -12,6 +12,7 @@ const importAll = (resolve, lang, type) => {
 };
 importAll(require.context("~/contents/en/work", true, /\.md$/), "en", "work")
 importAll(require.context("~/contents/en/blog", true, /\.md$/), "en", "blog")
+importAll(require.context("~/contents/es/blog", true, /\.md$/), "es", "blog")
 importAll(require.context("~/contents/es/work", true, /\.md$/), "es", "work")
 
 const createStore = () => {
@@ -58,6 +59,8 @@ const createStore = () => {
               owner: attr.owner,
               colors: attr.colors,
               role: attr.role,
+              trans: attr.trans,
+              id: attr.id,
               cardAlt: attr.cardAlt,
               description: attr.description,
               related: attr.related,

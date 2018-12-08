@@ -1,7 +1,8 @@
 const I18N = {
   detectBrowserLanguage: {
     useCookie: true,
-    cookieKey: 'i18n_redirected'
+    cookieKey: 'i18n_cookie_lang',
+    alwaysRedirect: true
   },
   useCookie: true,
   alwaysRedirect: true,
@@ -20,6 +21,7 @@ const I18N = {
     }
   ],
   lazy: true,
+  seo: false,
   langDir: '/locales/',
   defaultLocale: 'en',
   parsePages: false,

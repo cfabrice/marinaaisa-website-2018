@@ -14,8 +14,12 @@ const works = [
   "vr-player"
 ];
 
-const blogs = [
+const blogs_es = [
   "prueba-blog"
+];
+
+const blogs_en = [
+  "english-blog-post"
 ];
 
 module.exports = {
@@ -135,7 +139,7 @@ module.exports = {
     ]
     .concat(works.map(w => `/work/${w}`))
     .concat(works.map(w => `es/trabajo/${w}`))
-    .concat(blogs.map(w => `/blog/${w}`))
-    .concat(blogs.map(w => `es/blog/${w}`))
+    .concat(blogs_en.map(w => `/blog/${w}`))
+    .concat(blogs_es.map(w => `es/blog/${w}`))
   }
 }

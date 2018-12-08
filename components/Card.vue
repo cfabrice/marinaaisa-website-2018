@@ -47,7 +47,7 @@
       cardImage: function() {
         return this.isWork ?
           `work/${this.work.name}/_thumbnail.jpg` :
-          `blog/${this.work.name}/_thumbnail.jpg`;
+          `blog/${this.work.id}/_thumbnail.jpg`;
       },
       nuxtLink: function() {
         return this.isWork ?
