@@ -1,46 +1,34 @@
 <template>
   <section class="blogSelected">
     <div class="intro">
-      <nuxt-link
-        v-if="blog.trans"
-        v-for="(locale, i) in showLocales"
-        :key="i"
-        :to="(locale.code == 'en' ? '' : '/' + locale.code) + '/blog/' + blog.trans">
-        <button>
-          Cambio de idioma
-        </button>
-      </nuxt-link>
-      <ImageResponsive
-        :imageURL="'blog/' + blog.id + '/_main.jpg'"
-        :width="'50%'"
-        :alt="'Blog picture'" />
-      <h1>
-        {{ blog.title }}
-        {{ blog.trans }}
-        <span class="blogSelected-year">{{ blog.year }}</span>
-      </h1>
+      <div class="elevate-cover">
+        <div class="elevate-cover__textOffset">
+          <div class="elevate-cover__text">
+            <nuxt-link
+              v-if="blog.trans"
+              v-for="(locale, i) in showLocales"
+              :key="i"
+              :to="(locale.code == 'en' ? '' : '/' + locale.code) + '/blog/' + blog.trans">
+              
+                Este artículo está disponible en español
+            </nuxt-link>
+            <h1 class="elevate-cover__title">
+              {{ blog.title }}
+            </h1>
+            <span class="blogSelected-year">{{ blog.year }}</span>
+          </div>
+        </div>
+        <ImageResponsive
+          :imageURL="'blog/' + blog.id + '/_main.jpg'"
+          width="100%"
+          class="elevate-cover__img"
+          :alt="'Blog picture'" />
+      </div>
     </div>
-    <div>
-      <p>{{ blog.description }}</p>
-      <dl class="blogSelected-meta">
-        <dt>Product Owner</dt>
-        <dd>{{ blog.owner }}</dd>
-        <dt>Product Role</dt>
-        <dd>{{ blog.role }}</dd>
-      </dl>
+    <div class="container small">
       <DynamicMarkdown
         :render-func="blog.renderFunc"
         :static-render-funcs="blog.staticRenderFuncs" />
-      <div id="relatedblogs">
-        <span class="relatedblogs-header">"See more"</span>
-        <div class="relatedblogs-cards">
-          <card
-            v-for="blog in relatedblogs"
-            :key="blog.name"
-            :work="blog"
-            :isWork="false" />
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -145,5 +133,37 @@
   .intro {
     display: flex;
   }
+}
+.elevate-cover {
+  display: flex;
+
+  &__img, &__textOffset {
+    width: 100%;
+  }
+
+  &__text {
+    max-width: 612px;
+    width: 100%;
+    margin-left: auto;
+  }
+
+  &__textOffset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 6rem;
+  }
+}
+.dynamicMarkdown {
+  font-size: 21px;
+}
+p, h2 {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
