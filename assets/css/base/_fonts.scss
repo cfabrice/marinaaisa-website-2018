@@ -1,5 +1,5 @@
 @font-face {
-	font-family: "Graphik Regular";
+	font-family: "Graphik";
 	font-style: normal;
   font-display: swap;
 	font-weight: 200;
@@ -7,16 +7,24 @@
 }
 
 @font-face {
-	font-family: "Graphik Semibold";
+	font-family: "Graphik";
 	font-style: normal;
   font-display: swap;
 	font-weight: 600;
   src: url("/fonts/Graphik-Semibold.woff2") format("woff2");
 }
 
-$font-base-color:             $secondary-light;
-$font-family-base:            'Graphik Regular', Arial, sans-serif;
-$font-family-semibold:        'Graphik Semibold', Arial, sans-serif;
+@font-face {
+	font-family: "Tiempos Headline";
+	font-style: normal;
+  font-display: swap;
+	font-weight: 400;
+  src: url("/fonts/Tiempos-Headline-Semibold.woff2") format("woff2");
+}
+
+$font-base-color:             $secondary-lighter;
+$font-family-base:            'Graphik', Arial, sans-serif;
+$font-family-blog:            'Tiempos Headline', Arial, sans-serif;
 $line-height-base:            1.5;
 $fs-base:                     1.6rem;
 $fs-base-responsive:          1.4rem;
@@ -58,7 +66,7 @@ p,ul,ol,blockquote,.content-block{
   margin-top: 0;
   margin-bottom: 1.8em;
   @include content-blocks{
-    margin-top: -.8em;
+    margin-top: 1em;
   }
 
 }
@@ -66,8 +74,7 @@ p,ul,ol,blockquote,.content-block{
 .title {
   margin: 7.2rem 0 4.8rem 0;
   text-align: center;
-	font-weight: 500;
-  font-family: $font-family-semibold;
+	font-weight: 600;
   @media (min-width: $screen-sm){
     margin: 7rem 0 5rem 0;
   }

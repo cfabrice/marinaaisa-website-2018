@@ -156,10 +156,13 @@
 
   &__title {
     font-size: 6rem;
+    font-family: 'Tiempos Headline', Arial, sans-serif;
+    color: $secondary;
   }
 }
 .dynamicMarkdown {
   font-size: 21px;
+  line-height: 1.7;
 }
 p, h2 {
   max-width: 700px;

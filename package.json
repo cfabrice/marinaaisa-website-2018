@@ -8,7 +8,7 @@
     "npm": ">=5.0.0"
   },
   "dependencies": {
-    "normalize.css": "^8.0.0",
+    "normalize.css": "^8.0.1",
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^5.4.4",
     "theaterjs": "^3.2.0",
@@ -19,9 +19,9 @@
     "generate": "nuxt generate"
   },
   "devDependencies": {
+    "frontmatter-markdown-loader": "^1.5.0",
     "markdown-it": "^8.4.0",
-    "node-sass": "^4.9.3",
-    "frontmatter-markdown-loader": "^1.2.0",
+    "node-sass": "^4.11.0",
     "nuxt-sass-resources-loader": "^2.0.5",
     "responsive-loader": "^1.1.0",
     "sass-loader": "^7.1.0",

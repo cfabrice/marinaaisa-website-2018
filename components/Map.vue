@@ -255,7 +255,7 @@ export default {
 }
 
 .land {
-	fill: $secondary-lighter;
+	fill: $secondary-super-lighter;
 	fill-opacity: 1;
 	stroke: white;
 

@@ -83,7 +83,7 @@ export default {
       display: block;
       margin-left: -1.5px;
       display: none;
-      background-color: $secondary-lighter;
+      background-color: $secondary-super-lighter;
       @media (min-width: $screen-sm){
         display: initial;
       }
@@ -154,7 +154,7 @@ export default {
       height: calc(100% + 6px);
       border-radius: 100%;
       background: white;
-      border: 2px solid $secondary-lighter;
+      border: 2px solid $secondary-super-lighter;
       width: calc(100% + 6px);
 
       .experience__item--active & {

@@ -35,7 +35,7 @@ export default {
   align-items: center;
   z-index: 100;
   box-sizing: border-box;
-  background: $secondary;
+  background: $secondary-light;
 }
 
 .logo {
