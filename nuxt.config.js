@@ -122,9 +122,8 @@ module.exports = {
     ['nuxt-i18n', I18N]
   ],
   generate: {
-    fallback: true,
     routes: [
-      '/es'
+      '/es', '404'
     ]
     .concat(works.map(w => `/work/${w}`))
     .concat(works.map(w => `es/trabajo/${w}`))
