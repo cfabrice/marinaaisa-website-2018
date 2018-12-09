@@ -16,11 +16,7 @@
   },
   "scripts": {
     "dev": "nuxt",
-    "dev:en": "BUILD_LOCALE=en nuxt",
-    "dev:ja": "BUILD_LOCALE=ja nuxt",
-    "generate": "NODE_ENV=production nuxt generate",
-    "generate:en": "BUILD_LOCALE=en nuxt generate",
-    "generate:ja": "BUILD_LOCALE=ja nuxt generate"
+    "generate": "nuxt generate"
   },
   "devDependencies": {
     "markdown-it": "^8.4.0",

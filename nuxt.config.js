@@ -2,8 +2,6 @@ const builtAt = new Date().toISOString();
 const path = require('path');
 const { I18N } = require('./locales/i18n-nuxt-config');
 
-const buildLocale = process.env.BUILD_LOCALE || 'en';
-const isProd = process.env.NODE_ENV === 'production';
 const productionUrl = {
   en: "/en",
   es: "/es"
@@ -25,7 +23,6 @@ const blogs_en = [
 module.exports = {
   env: {
     baseUrl,
-    buildLocale,
     productionUrl,
     works
   },
@@ -82,7 +79,7 @@ module.exports = {
     extractCSS: {
       allChunks: true
     },
-    extend (config, { isDev, isClient }) {
+    extend (config) {
       const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/');
       config.module.rules.splice(config.module.rules.indexOf(rule), 1);
 
@@ -95,13 +92,6 @@ module.exports = {
             root: "dynamicMarkdown"
           }
         }
-      }, {
-        test: /\.yaml$/,
-        loaders: [
-          'json-loader',
-          'yaml-loader'
-        ],
-        include: path.resolve(__dirname, 'locales')
       }, {
         test: /\.(jpe?g|png)$/i,
         loader: 'responsive-loader',
@@ -133,7 +123,6 @@ module.exports = {
   ],
   generate: {
     fallback: true,
-    subFolders: false,
     routes: [
       '/es'
     ]
