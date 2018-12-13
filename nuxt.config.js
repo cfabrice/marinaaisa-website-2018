@@ -76,6 +76,10 @@ module.exports = {
   ],
 
   build: {
+    analyze: true,
+    analyze: {
+      analyzerMode: 'static'
+    },
     extend (config) {
       const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/');
       config.module.rules.splice(config.module.rules.indexOf(rule), 1);
