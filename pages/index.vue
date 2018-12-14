@@ -23,7 +23,7 @@
   import AboutSection from "~/components/Sections/AboutSection"
   import ExperienceSection from "~/components/Sections/ExperienceSection"
   import CallToActionSection from "~/components/Sections/CallToActionSection"
-  import MapSection from "~/components/Sections/MapSection"
+  const MapSection = () => import('~/components/Sections/MapSection')
 
   export default {
 

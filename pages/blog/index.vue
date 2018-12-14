@@ -7,17 +7,11 @@
 </template>
 
 <script>
-  import HeroSection from "~/components/Sections/HeroSection"
-  import PortfolioSection from "~/components/Sections/PortfolioSection"
   import BlogSection from "~/components/Sections/BlogSection"
-  import AboutSection from "~/components/Sections/AboutSection"
-  import ExperienceSection from "~/components/Sections/ExperienceSection"
-  import CallToActionSection from "~/components/Sections/CallToActionSection"
-  import MapSection from "~/components/Sections/MapSection"
 
   export default {
 
-    components: { PortfolioSection, BlogSection, HeroSection, AboutSection, ExperienceSection, CallToActionSection, MapSection },
+    components: { BlogSection },
 
     head () {
       return {
