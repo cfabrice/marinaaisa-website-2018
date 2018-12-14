@@ -9,7 +9,9 @@
     </div>
       <CallToActionSection />
     <div class="container">
-      <MapSection />
+      <lazy-component @show="handler">
+        <MapSection/>
+      </lazy-component>
     </div>
   </div>
 </template>
@@ -54,6 +56,12 @@
       },
       pageDescription: function () {
         return "description";
+      }
+    },
+
+    methods: {
+      handler (component) {
+        console.log('this component is showing')
       }
     }
   }
