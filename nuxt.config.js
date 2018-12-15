@@ -13,11 +13,11 @@ const works = [
 ];
 
 const blogs_es = [
-  "prueba-blog"
+  "blog-portfolio-usando-vue-nuxt-vuex"
 ];
 
 const blogs_en = [
-  "english-blog-post"
+  "blog-portfolio-using-vue-nuxt-vuex"
 ];
 
 module.exports = {
