@@ -1,6 +1,7 @@
 <template>
 	<section id="experience">
 		<h2>{{ $t('workExperience.title') }}</h2>
+		<span class="emoji-title emoji--girl-coding"/>
 		<ul class="experience__content">
 			<Experience
 				v-for="item in workExperience"
@@ -10,6 +11,7 @@
 			/>
 		</ul>
 		<h2>{{ $t('education.title') }}</h2>
+		<span class="emoji-title emoji--nerd"/>
 		<ul class="experience__content">
 			<Experience
 				v-for="item in education"

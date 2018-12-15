@@ -1,6 +1,7 @@
 <template>
   <section>
     <h2>Portfolio</h2>
+    <span class="emoji-title emoji--art"/>
     <div id="works">
       <card
         v-for="work in works"

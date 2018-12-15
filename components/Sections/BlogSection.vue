@@ -1,6 +1,7 @@
 <template>
   <section>
     <h2>{{ $t('posts') }}</h2>
+    <span class="emoji-title emoji--writing"/>
     <div id="blogs">
       <card
         v-for="blog in blogs"

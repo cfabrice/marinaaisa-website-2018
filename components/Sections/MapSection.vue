@@ -2,6 +2,7 @@
   <section class="map">
     <div class="map__container">
       <h2 v-text="$t('map.title')"/>
+      <span class="emoji-title emoji--plane"/>
       <div class="map__content">
         <div class="map__text">
           <p v-html="$t('map.content')"/>
