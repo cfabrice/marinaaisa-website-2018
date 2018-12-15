@@ -4,7 +4,7 @@ year: 2017
 owner: The Dream VR
 role: UI Design
 colors: '#5a46ff'
-trans: 'prueba-blog'
+trans: 'blog-portfolio-usando-vue-nuxt-vuex'
 id: 'prueba-blog'
 description: |
   VR description.

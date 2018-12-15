@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     imageRequired () {
-      return require("@/assets/images/" + this.imageURL);
+      return require(`../assets/images/${this.imageURL}`)
     },
     hasRadius () {
       return this.radius ? 'image-placeholder--radius' : ''
@@ -53,7 +53,7 @@ export default {
 }
 
 img {
-  transition: all ease .75s;
+  transition: all ease .3s;
   opacity: 0;
 
   &[lazy='loading'] {

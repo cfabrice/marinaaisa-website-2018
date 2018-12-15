@@ -4,18 +4,20 @@
       <div class="elevate-cover">
         <div class="elevate-cover__textOffset">
           <div class="elevate-cover__text">
+            <span class="blogSelected-year">{{ blog.year }}</span>
+            —
             <nuxt-link
               v-if="blog.trans"
               v-for="(locale, i) in showLocales"
               :key="i"
               :to="(locale.code == 'en' ? '' : '/' + locale.code) + '/blog/' + blog.trans">
               
-                Este artículo está disponible en español
+                {{ $t('changeLanguage') }}
             </nuxt-link>
             <h1 class="elevate-cover__title">
               {{ blog.title }}
             </h1>
-            <span class="blogSelected-year">{{ blog.year }}</span>
+            <p class="elevate-cover__description">{{ blog.description }}</p>
           </div>
         </div>
         <ImageResponsive
@@ -155,18 +157,23 @@
   }
 
   &__title {
-    font-size: 6rem;
+    font-size: 4.5rem;
     font-family: 'Tiempos Headline', Arial, sans-serif;
     color: $secondary;
+  }
+
+  &__description {
+    margin: 0;
   }
 }
 .dynamicMarkdown {
   font-size: 21px;
   line-height: 1.7;
-}
-p, h2 {
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+
+  p, h2 {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

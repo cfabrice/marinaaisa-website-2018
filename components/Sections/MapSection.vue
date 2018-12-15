@@ -1,14 +1,10 @@
 <template>
   <section class="map">
     <div class="map__container">
-      <div class="map__title">
-        <h1>Hobby: Discovering the world</h1>
-      </div>
+      <h2 v-text="$t('map.title')"/>
       <div class="map__content">
         <div class="map__text">
-          <p>
-            These are all the countries that I have <span class="map__text--visited">visited</span> or <span class="map__text--lived">lived in</span>.
-          </p>
+          <p v-html="$t('map.content')"/>
         </div>
         <div class="map__map">
           <Map :visited="this.visited" :lived="this.lived"/>
@@ -35,4 +31,37 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.map {
+  position: relative;
+
+  &__content {
+    display: flex;
+    @media (min-width: $screen-sm){
+      align-items: center;
+    }
+  }
+
+  &__text {
+    width: 100%;
+    @media (min-width: $screen-sm){
+      padding-right: 4rem;
+      width: 30%;
+    }
+  	&--visited {
+      color: $primary;
+    }
+    &--lived {
+      color: $secondary;
+    }
+  }
+  &__map {
+    width: 100%;
+    @media (min-width: $screen-md){
+      width: 70%;
+    }
+  }
+}
+</style>
+
 

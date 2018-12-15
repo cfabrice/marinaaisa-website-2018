@@ -4,8 +4,8 @@
       <ImageResponsive
         :imageURL="'marina-aisa-photo.jpg'"
         :classes="'hero__profile'"
-        :width="'478'"
-        :height="'476'"
+        :width="'224'"
+        :height="'77'"
         :alt="'Imagen de Marina'" />
       <div class="hero__text">
         <h1 id="hero-text">
@@ -41,7 +41,7 @@ export default {
     if (this.$i18n.locale == 'en') {
       theater.addScene('hero-text-content: Hi! I\'m <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aisa</a>', 600, ', <br> a product designer.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -17, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
     } else {
-      theater.addScene('hero-text-content: Hola, soy <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aisa</a>', 600, ', <br> diseñadora de producto.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -17, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
+      theater.addScene('hero-text-content: Hola, soy <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aisa</a>', 600, ', <br> diseñadora de producto.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -23, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
     }
     theater.addScene(theater.replay.bind(theater))
   }
