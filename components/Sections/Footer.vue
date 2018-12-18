@@ -2,18 +2,13 @@
   <footer>
     <div class="footer__main">
       <div class="container">
-        <div class="footer__contact">
-          <span class="text-negative">
-          Feel free to drop an “Hi or Hola” back, <br>
-          just writing me a <a target="_blank" href="https://twitter.com/MarinaAisa" class="ani twitter"><span>tweet</span></a>, or sending me an <a target="_blank" href="mailto:marina@marinaaisa.com" class="ani"><span>email</span></a>. <br></span>
-          As you see, I love emojis so don’t forget to add one.
-        </div>
+        <div class="footer__contact" v-html="$t('footer.content')"/>
       </div>
     </div>
     <div class="footer__info">
       <div class="container footer__info-container">
         <div class="footer__copyright">
-          © {{ year }} — Designed and <a target="_blank" href="https://github.com/marinaaisa/marinaaisa-website-2018" class="ani"><span>coded</span></a> by<span class="text-negative"> Marina Aisa</span>.
+          © {{ year }} — <span v-html="$t('footer.credits')"/>
         </div>
         <a href="#top" class="footer__top-page">
           ^
@@ -27,6 +22,9 @@ export default {
   computed: {
     year () {
       return new Date().getFullYear()
+    },
+    copyright () {
+      return $t('footer.content')
     }
   }
 }
