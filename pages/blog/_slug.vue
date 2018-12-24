@@ -12,7 +12,7 @@
               :key="i"
               :to="(locale.code == 'en' ? '' : '/' + locale.code) + '/blog/' + blog.trans">
               
-                {{ $t('changeLanguage') }}
+                {{ $t('changeLanguagePost') }}
             </nuxt-link>
             <h1 class="elevate-cover__title">
               {{ blog.title }}
@@ -144,9 +144,10 @@
   }
 
   &__text {
-    max-width: 612px;
+    max-width: 476px;
     width: 100%;
     margin-left: auto;
+    padding-right: 4rem;
   }
 
   &__textOffset {
@@ -157,7 +158,7 @@
   }
 
   &__title {
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-family: 'Tiempos Headline', Arial, sans-serif;
     color: $secondary;
   }

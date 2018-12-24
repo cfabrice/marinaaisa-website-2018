@@ -5,7 +5,7 @@ import map from './map'
 import footer from './footer'
 
 export default {
-  changeLanguage: 'Post available in English',
+  changeLanguagePost: 'Post available in English',
   posts: 'Artículos',
   home: 'Inicio',
   about: about,

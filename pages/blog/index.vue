@@ -44,3 +44,9 @@
     }
   }
 </script>
+<style lang="scss">
+.page-blog {
+  margin-top: 4rem;
+}
+</style>
+

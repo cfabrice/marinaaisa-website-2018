@@ -1,11 +1,16 @@
 <template>
-  <header class="the-header">
+  <header
+    :class="{ 'the-header--dark': darkHeaderRoutes }"
+    class="the-header"
+  >
     <div class="container">
+      <nuxt-link :to="localePath('index')">
+        <img src="~/assets/images/logo-marina.svg" alt="Logo Marina" class="the-header__logo">
+      </nuxt-link>
       <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
-      <div class="spacer"></div>
       <div class="navigation-items">
+        <LangSwitcher v-if="altRoutes"/>
         <NavItems/>
-        <LangSwitcher/>
       </div>
     </div>
   </header>
@@ -20,6 +25,14 @@ export default {
   name: "TheHeader",
   components: {
     TheSideNavToggle, LangSwitcher, NavItems
+  },
+  computed: {
+    altRoutes () {
+      return this.$route.path === '/' || this.$route.path === '/es' || this.$route.path === '/blog' || this.$route.path === '/es/blog'
+    },
+    darkHeaderRoutes () {
+      return this.$route.path === '/' || this.$route.path === '/es'
+    }
   }
 };
 </script>
@@ -34,8 +47,30 @@ export default {
   justify-content: space-around;
   align-items: center;
   z-index: 100;
-  box-sizing: border-box;
-  background: $secondary-light;
+  -webkit-box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
+  background-color: white;
+
+  &__logo {
+    height: 100%;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    color: $secondary-light;
+  }
+
+  &--dark {
+    background-color: $secondary-light;
+
+    a {
+      color: white;
+    }
+  }
 }
 
 .logo {
@@ -53,6 +88,7 @@ export default {
 @media (min-width: 768px) {
   .navigation-items {
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 }
@@ -62,10 +98,6 @@ export default {
   padding: 0;
   margin: 0;
   display: flex;
-
-  a {
-    color: white;
-  }
 }
 
 .nav-item ~ .nav-item{

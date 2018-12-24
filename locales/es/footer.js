@@ -1,4 +1,4 @@
 export default {
-  content: '<span class="text-negative">Si has llegado hasta aquí, me encantaría que me devolvieras un "Hola", <br>escrimiéndome un <a target="_blank" href="https://twitter.com/MarinaAisa" class="ani twitter"><span>tweet</span></a>, o enviándome un <a target="_blank" href="mailto:marina@marinaaisa.com" class="ani"><span>email</span></a>. <br></span>Como ya ves, me encantan los emojis, así que no olvides de añadir uno.',
-  credits: 'Web diseñada y <a target="_blank" href="https://github.com/marinaaisa/marinaaisa-website-2018" class="ani"><span>programada</span></a> por<span class="text-negative"> Marina Aisa</span>.'
+  content: '<span class="text-negative">Si has llegado hasta aquí, me encantaría que me devolvieras un "Hola", <br>escrimiéndome un <a target="_blank" href="https://twitter.com/MarinaAisa" class="ani twitter"><span>tweet</span></a>, o enviándome un <a target="_blank" href="mailto:marina@marinaaisa.com" class="ani"><span>email</span></a>. <br></span>Como ya ves, me encantan los emojis, así que no olvides añadir uno.',
+  credits: 'Web app diseñada y <a target="_blank" href="https://github.com/marinaaisa/marinaaisa-website-2018" class="ani"><span>programada</span></a> por<span class="text-negative"> Marina Aisa</span> usando Vue.js + Nuxt.'
 }

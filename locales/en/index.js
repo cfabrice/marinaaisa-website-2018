@@ -5,7 +5,7 @@ import map from './map'
 import footer from './footer'
 
 export default {
-  changeLanguage: 'Artículo disponible en español',
+  changeLanguagePost: 'Artículo disponible en español',
   posts: 'Posts',
   about: about,
   home: 'Home',
