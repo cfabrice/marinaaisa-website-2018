@@ -31,31 +31,24 @@
 
     head () {
       return {
-        title: this.pageTitle,
+        title: this.$t('indexPageHead.title'),
+        htmlAttrs: {
+          lang: this.$i18n.locale,
+        },
         meta: [
           { name: "author", content: "Marina Aisa" },
-          { name: "description", property: "og:description", content: this.pageDescription, hid: "description" },
-          { property: "og:title", content: this.pageTitle },
-          { property: "og:url", content: this.ogUrl },
+          { name: "description", property: "og:description", content: this.$t('indexPageHead.description'), hid: "description" },
+          { property: "og:title", content: this.$t('indexPageHead.title') },
           { property: "og:image", content: this.ogImage },
-          { name: "twitter:description", content: this.pageDescription },
+          { name: "twitter:description", content: this.$t('indexPageHead.description') },
           { name: "twitter:image", content: this.ogImage }
         ]
       };
     },
 
     computed: {
-      ogUrl: function () {
-        return process.env.baseUrl;
-      },
       ogImage: function () {
         return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
-      },
-      pageTitle: function () {
-        return "title";
-      },
-      pageDescription: function () {
-        return "description";
       }
     },
 

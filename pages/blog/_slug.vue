@@ -66,12 +66,11 @@
         },
         meta: [
           { name: "author", content: "Marina Aisa" },
-          { name: "description", property: "og:description", content: this.pageDescription, hid: "description" },
+          { name: "description", property: "og:description", content: this.blog.description, hid: "description" },
           { property: "og:title", content: this.pageTitle },
-          { property: "og:url", content: this.ogUrl },
           { property: "og:image", content: this.ogImage },
-          { name: "twitter:description", content: this.pageDescription },
-          { name: "twitter:image", content: this.ogImage },
+          { name: "twitter:description", content: this.blog.description },
+          { name: "twitter:image", content: this.ogImage }
         ],
         link: [
           this.hreflang
@@ -80,17 +79,11 @@
     },
 
     computed: {
-      ogUrl () {
-        return process.env.baseUrl;
-      },
       ogImage: function () {
         return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
       },
       pageTitle: function () {
-        return "title";
-      },
-      pageDescription: function () {
-        return "description";
+        return 'Marina Aisa | ' + this.blog.title;
       },
       showLocales () {
         return this.$i18n.locales.filter(locale => locale.code !== this.$i18n.locale)
@@ -99,13 +92,11 @@
         if (!this.blog.trans) {
           return ''
         }
-        if (this.blog.trans) {
-          return {
-            hid: 'alternate-hreflang-' + this.showLocales[0].iso,
-            rel: 'alternate',
-            href: (this.showLocales[0].code === 'en' ? '' : this.showLocales[0].code) + '/blog/' + this.blog.trans,
-            hreflang: this.showLocales[0].code
-          }
+        return {
+          hid: 'alternate-hreflang-' + this.showLocales[0].iso,
+          rel: 'alternate',
+          href: (this.showLocales[0].code === 'en' ? '' : this.showLocales[0].code) + '/blog/' + this.blog.trans,
+          hreflang: this.showLocales[0].code
         }
       }
     }
@@ -138,16 +129,25 @@
 }
 .elevate-cover {
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: $screen-md){
+    flex-direction: row;
+  }
 
   &__img, &__textOffset {
     width: 100%;
   }
 
   &__text {
-    max-width: 476px;
+    max-width: 500px;
     width: 100%;
-    margin-left: auto;
-    padding-right: 4rem;
+    padding: 2.4rem;
+
+    @media (min-width: $screen-md){
+      margin-left: auto;
+      padding: 2.4rem 4rem 2.4rem 2.4rem;
+    }
   }
 
   &__textOffset {

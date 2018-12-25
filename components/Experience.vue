@@ -113,10 +113,14 @@ export default {
 
   &__time-place {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
     padding-top: 1.5rem;
     margin-bottom: 1rem;
+    
     @media (min-width: $screen-sm){
       margin-bottom: 0;
+      display: block;
       width: 16.66667%;
     }
   }
@@ -129,9 +133,12 @@ export default {
   &__panel {
     position: relative;
     padding: 0;
+    margin-top: -5.5rem;
     text-align: left;
+
     @media (min-width: $screen-sm){
       padding: 0 0 0 2.7rem;
+      margin-top: 0;
       width: 75%;
     }
   }
@@ -192,15 +199,9 @@ export default {
       display: block;
     }
   }
-  &__time {
-    float: right;
-    @media (min-width: $screen-sm){
-      float: initial;
-    }
-  }
   &__position,
   &__studies {
-    padding: .3rem 0 0 7rem;
+    padding: .3rem 0 0 22%;
     min-height: 5rem;
     @media (min-width: $screen-sm){
       padding: 0;

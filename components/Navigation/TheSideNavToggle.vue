@@ -25,9 +25,13 @@
   .bar {
     width: 90%;
     height: 2px;
-    background-color: white;
+    background-color: $secondary;
     margin-bottom: .8rem;
     border-radius: 20px;
+
+    .the-header--dark & {
+      background-color: white;
+    }
   }
 }
 </style>

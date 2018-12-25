@@ -21,9 +21,15 @@ export default {
 }
 </script>
 <style lang="scss">
-@media (min-width: 768px) {
-  .lang-switcher {
+.lang-switcher {
+  margin-right: 2rem;
+  
+  @media (min-width: $screen-sm){
     margin-right: 2rem;
+  }
+
+  &--white {
+    color: white;
   }
 }
 select {

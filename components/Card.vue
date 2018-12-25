@@ -9,7 +9,10 @@
         <h3 class="portfolio__thumb-description">
           {{ work.title }}
         </h3>
-        <h3 class="portfolio__thumb-client<% if s.color_text_dark %>--dark<% end %>">
+        <h3 
+          class="portfolio__thumb-client"
+          :class="{ 'portfolio__thumb-client--dark': work.color }"
+        >
           {{ work.role }}
         </h3>
       </div>
@@ -141,7 +144,7 @@
       left: 4rem;
       text-align: left;
       color: white;
-      font-family: 'Graphik Regular', sans-serif;
+      font-weight: 200;
       &--dark {
         @extend .portfolio__thumb-client;
         color: $secondary;

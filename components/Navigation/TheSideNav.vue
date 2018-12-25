@@ -8,6 +8,7 @@
     <div
       v-if="show"
       class="sidenav">
+      <LangSwitcher v-if="altRoutes" class="lang-switcher--white"/>
       <NavItems @click="$emit('close')"/>
     </div>
   </transition>
@@ -16,23 +17,29 @@
 
 <script>
 import NavItems from '~/components/Navigation/NavItems'
+import LangSwitcher from '~/components/LangSwitcher'
 
 export default {
   name: "TheSidenav",
   components: {
-    NavItems
+    NavItems, LangSwitcher
   },
   props: {
     show: {
       type: Boolean,
       default: false
     }
+  },
+  computed: {
+    altRoutes () {
+      return this.$route.path === '/' || this.$route.path === '/es' || this.$route.path === '/blog' || this.$route.path === '/es/blog'
+    }
   }
 };
 </script>
 
 
-<style scoped lang="scss">
+<style lang="scss">
 .sidenav-container {
   height: 100%;
   width: 100%;
@@ -74,20 +81,9 @@ export default {
   padding: 0;
   margin: 0;
   flex-direction: column;
-}
 
-.nav-item {
-  margin: 20px 0;
-}
-
-.nav-item a {
-  text-decoration: none;
-  color: white;
-  font-size: 1.5rem;
-}
-
-.nav-item a:hover,
-.nav-item a:active {
-  color: red;
+  @media (min-width: $screen-sm){
+    flex-direction: row;
+  }
 }
 </style>

@@ -71,7 +71,11 @@ img{
 }
 
 section {
-  margin-bottom: 7.2rem;
+  margin-bottom: 2.4rem;
+  
+  @media (min-width: $screen-sm){
+    margin-bottom: 7.2rem;
+  }
 }
 
 button {

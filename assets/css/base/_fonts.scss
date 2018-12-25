@@ -119,8 +119,11 @@ h2,.h2{
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 1rem;
-  padding-bottom: 48px;
   display: inline-block;
+  
+  @media (min-width: $screen-sm){
+    padding-bottom: 48px;
+  }
 }
 
 h3,.h3{

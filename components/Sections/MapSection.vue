@@ -1,8 +1,7 @@
 <template>
   <section class="map">
     <div class="map__container">
-      <h2 v-text="$t('map.title')"/>
-      <span class="emoji-title emoji--plane"/>
+      <h2 v-html="$t('map.title')"/>
       <div class="map__content">
         <div class="map__text">
           <p v-html="$t('map.content')"/>
@@ -38,8 +37,11 @@ export default {
 
   &__content {
     display: flex;
+    flex-direction: column;
+
     @media (min-width: $screen-sm){
       align-items: center;
+      flex-direction: row;
     }
   }
 

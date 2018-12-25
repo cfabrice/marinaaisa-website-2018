@@ -58,6 +58,11 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-direction: column;
+
+    @media (min-width: $screen-sm){
+      flex-direction: row;
+    }
   }
 
 	&__copyright {

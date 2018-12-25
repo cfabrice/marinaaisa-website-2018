@@ -3,9 +3,11 @@ import education from './education'
 import about from './about'
 import map from './map'
 import footer from './footer'
+import indexPageHead from './index-page-head'
 
 export default {
   changeLanguagePost: 'Post available in English',
+  indexPageHead: indexPageHead,
   posts: 'Artículos',
   home: 'Inicio',
   about: about,
