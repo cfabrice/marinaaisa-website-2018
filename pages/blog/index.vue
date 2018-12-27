@@ -1,7 +1,7 @@
 <template>
   <div class="page-blog">
     <div class="container">
-      <BlogSection />
+      <BlogSection :blogs="blogs"/>
     </div>
   </div>
 </template>
@@ -10,6 +10,25 @@
   import BlogSection from "~/components/Sections/BlogSection"
 
   export default {
+    async asyncData ({store}) {
+    
+      const blogsEn = ['blog-portfolio-using-vue-nuxt-vuex']
+      const blogsEs = ['blog-portfolio-usando-vue-nuxt-vuex']
+
+      const blogs = store.state.i18n.locale === 'en' ? blogsEn : blogsEs
+      
+      async function sacalotodo (blogname) {
+        const wholeMD = await import(`~/contents/${store.state.i18n.locale}/blog/${blogname}.md`)
+        return wholeMD.attributes
+      }
+
+      return Promise.all(blogs.map(blog => sacalotodo(blog)))
+      .then((res) => {
+        return {
+          blogs: res
+        }
+      })
+    },
 
     components: { BlogSection },
 

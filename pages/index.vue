@@ -2,8 +2,7 @@
   <div class="page-index">
     <HeroSection />
     <div class="container">
-      <PortfolioSection />
-      <BlogSection />
+      <BlogSection :blogs="blogs"/>
       <AboutSection />
       <ExperienceSection />
     </div>
@@ -26,6 +25,25 @@
   const MapSection = () => import('~/components/Sections/MapSection')
 
   export default {
+    async asyncData ({store}) {
+    
+      const blogsEn = ['blog-portfolio-using-vue-nuxt-vuex']
+      const blogsEs = ['blog-portfolio-usando-vue-nuxt-vuex']
+
+      const blogs = store.state.i18n.locale === 'en' ? blogsEn : blogsEs
+      
+      async function sacalotodo (blogname) {
+        const wholeMD = await import(`~/contents/${store.state.i18n.locale}/blog/${blogname}.md`)
+        return wholeMD.attributes
+      }
+
+      return Promise.all(blogs.map(blog => sacalotodo(blog)))
+      .then((res) => {
+        return {
+          blogs: res
+        }
+      })
+    },
 
     components: { PortfolioSection, BlogSection, HeroSection, AboutSection, ExperienceSection, CallToActionSection, MapSection },
 

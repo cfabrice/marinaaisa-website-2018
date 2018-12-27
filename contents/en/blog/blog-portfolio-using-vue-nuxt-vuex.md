@@ -1,5 +1,6 @@
 ---
 title: Blog post in English
+name: 'blog-portfolio-using-vue-nuxt-vuex'
 year: 2017
 owner: The Dream VR
 role: UI Design

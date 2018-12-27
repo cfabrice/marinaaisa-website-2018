@@ -4,24 +4,24 @@
       <div class="elevate-cover">
         <div class="elevate-cover__textOffset">
           <div class="elevate-cover__text">
-            <span class="blogSelected-year">{{ blog.year }}</span>
+            <span class="blogSelected-year">{{ year }}</span>
             —
             <nuxt-link
-              v-if="blog.trans"
+              v-if="trans"
               v-for="(locale, i) in showLocales"
               :key="i"
-              :to="(locale.code == 'en' ? '' : '/' + locale.code) + '/blog/' + blog.trans">
+              :to="(locale.code == 'en' ? '' : '/' + locale.code) + '/blog/' + trans">
               
                 {{ $t('changeLanguagePost') }}
             </nuxt-link>
             <h1 class="elevate-cover__title">
-              {{ blog.title }}
+              {{ title }}
             </h1>
-            <p class="elevate-cover__description">{{ blog.description }}</p>
+            <p class="elevate-cover__description">{{ description }}</p>
           </div>
         </div>
         <ImageResponsive
-          :imageURL="'blog/' + blog.id + '/_main.jpg'"
+          :imageURL="'blog/' + id + '/_main.jpg'"
           width="100%"
           class="elevate-cover__img"
           :alt="'Blog picture'" />
@@ -29,8 +29,8 @@
     </div>
     <div class="container small">
       <DynamicMarkdown
-        :render-func="blog.renderFunc"
-        :static-render-funcs="blog.staticRenderFuncs" />
+        :render-func="renderFunc"
+        :static-render-funcs="staticRenderFuncs" />
     </div>
   </section>
 </template>
@@ -45,10 +45,26 @@
   export default {
 
     async asyncData ({params, store}) {
-      const blogs = store.state[store.state.i18n.locale].blogs
+      const fileContent = await import(`~/contents/${store.state.i18n.locale}/blog/${params.slug}.md`)
+      const attr = fileContent.attributes
       return {
-        blog: blogs[params.slug],
-        relatedblogs: blogs
+        name: params.slug,
+        title: attr.title,
+        trans: attr.trans,
+        year: attr.year,
+        id: attr.id,
+        owner: attr.owner,
+        colors: attr.colors,
+        role: attr.role,
+        cardAlt: attr.cardAlt,
+        description: attr.description,
+        related: attr.related,
+        renderFunc: fileContent.vue.render,
+        staticRenderFuncs: fileContent.vue.staticRenderFns,
+        image: {
+          main: attr.image && attr.image.main,
+          og: attr.image && attr.image.og
+        }
       }
     },
 
@@ -66,10 +82,10 @@
         },
         meta: [
           { name: "author", content: "Marina Aisa" },
-          { name: "description", property: "og:description", content: this.blog.description, hid: "description" },
+          { name: "description", property: "og:description", content: this.description, hid: "description" },
           { property: "og:title", content: this.pageTitle },
           { property: "og:image", content: this.ogImage },
-          { name: "twitter:description", content: this.blog.description },
+          { name: "twitter:description", content: this.description },
           { name: "twitter:image", content: this.ogImage }
         ],
         link: [
@@ -83,19 +99,19 @@
         return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
       },
       pageTitle: function () {
-        return 'Marina Aisa | ' + this.blog.title;
+        return 'Marina Aisa | ' + this.title;
       },
       showLocales () {
         return this.$i18n.locales.filter(locale => locale.code !== this.$i18n.locale)
       },
       hreflang () {
-        if (!this.blog.trans) {
+        if (!this.trans) {
           return ''
         }
         return {
           hid: 'alternate-hreflang-' + this.showLocales[0].iso,
           rel: 'alternate',
-          href: (this.showLocales[0].code === 'en' ? '' : this.showLocales[0].code) + '/blog/' + this.blog.trans,
+          href: (this.showLocales[0].code === 'en' ? '' : this.showLocales[0].code) + '/blog/' + this.trans,
           hreflang: this.showLocales[0].code
         }
       }

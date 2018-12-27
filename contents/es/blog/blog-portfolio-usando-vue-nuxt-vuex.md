@@ -1,4 +1,5 @@
 ---
+name: 'blog-portfolio-usando-vue-nuxt-vuex'
 title: Web personal con blog y portfolio usando Vue.js + Nuxt
 year: 11 Dec 2018
 colors: '#5a46ff'
