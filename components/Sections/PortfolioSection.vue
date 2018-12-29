@@ -2,25 +2,19 @@
   <section>
     <h2>Portfolio</h2>
     <span class="emoji-title emoji--art"/>
-    <div id="works">
+    <ul id="works">
       <card
-        v-for="work in works"
+        v-for="work in $t('works')"
         :key="work.name"
         :work="work"
         :isWork="true" />
-    </div>
+    </ul>
   </section>
 </template>
 <script>
 import Card from "~/components/Card.vue";
 export default {
-  components: { Card },
-  data () {
-    const store = this.$store.state[this.$i18n.locale];
-    return {
-      works: store.works
-    }
-  }
+  components: { Card }
 }
 </script>
 

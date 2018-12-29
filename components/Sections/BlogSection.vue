@@ -2,13 +2,13 @@
   <section>
     <h2>{{ $t('posts') }}</h2>
     <span class="emoji-title emoji--writing"/>
-    <div id="blogs">
+    <ul id="blogs">
       <card
         v-for="blog in blogs"
         :key="blog.name"
         :work="blog"
         :isWork="false" />
-    </div>
+    </ul>
   </section>
 </template>
 <script>

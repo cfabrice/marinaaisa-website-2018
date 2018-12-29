@@ -39,9 +39,9 @@ export default {
 
     theater.addActor('hero-text-content', { speed: .9, accuracy: 1 })
     if (this.$i18n.locale == 'en') {
-      theater.addScene('hero-text-content: Hi! I\'m <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aisa</a>', 600, ', <br> a product designer.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -17, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
+      theater.addScene('hero-text-content: Hi! I\'m <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aísa</a>', 600, ', <br> a product designer.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -17, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
     } else {
-      theater.addScene('hero-text-content: Hola, soy <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aisa</a>', 600, ', <br> diseñadora de producto.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -23, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
+      theater.addScene('hero-text-content: Hola, soy <a target="_blank" href="https://twitter.com/MarinaAisa">Marina Aísa</a>', 600, ', <br> diseñadora de producto.', 600, function (done) { document.getElementById("hero-text").style.background = 'black'; done(); }, -23, 'front-end developer.', 600,function (done) { document.getElementById("hero-text").style.background = 'white'; done(); })
     }
     theater.addScene(theater.replay.bind(theater))
   }

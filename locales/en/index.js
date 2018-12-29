@@ -3,6 +3,7 @@ import education from './education'
 import about from './about'
 import map from './map'
 import footer from './footer'
+import works from './works'
 import indexPageHead from './index-page-head'
 
 export default {
@@ -17,5 +18,6 @@ export default {
   atTheMomentImLearning: "At the moment I'm learning",
   callAction: 'If you want to know what other amazing professionals that I admire and I have worked with think about me , check my <a target="_blank" href="https://www.linkedin.com/in/marinaaisa/" class="ani linkedin"><span>Linkedin</span></a> <span class="emoji-small emoji--loved"/>',
   map: map,
-  footer: footer
+  footer: footer,
+  works: works
 }

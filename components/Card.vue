@@ -1,19 +1,40 @@
 <template>
-  <div class="portfolio__item">
-    <nuxt-link
-      :to="localePath({
-        name: nuxtLink,
-        params: { slug: work.name }
-      })" class="portfolio__thumb-inner">
+  <li class="portfolio__item">
+    <a 
+      v-if="isWork"
+      :href="work.url"
+      class="portfolio__thumb-inner"
+    >
       <div class="portfolio__thumb-hover" :style="backgroundColor">
         <h3 class="portfolio__thumb-description">
           {{ work.title }}
         </h3>
         <h3 
           class="portfolio__thumb-client"
-          :class="{ 'portfolio__thumb-client--dark': work.color }"
         >
-          {{ work.role }}
+          {{ work.description }}
+        </h3>
+      </div>
+      <ImageResponsive
+        :imageURL="cardImage"
+        :classes="'cardThumbnail'"
+        :width="'952'"
+        :height="'509'"
+        :alt="work.cardAlt" />
+    </a>
+    <nuxt-link 
+      v-else
+      :to="localePath({ name: nuxtLink, params: { slug: work.name }})"
+      class="portfolio__thumb-inner"
+    >
+      <div class="portfolio__thumb-hover" :style="backgroundColor">
+        <h3 class="portfolio__thumb-description">
+          {{ work.title }}
+        </h3>
+        <h3 
+          class="portfolio__thumb-client"
+        >
+          {{ work.description }}
         </h3>
       </div>
       <ImageResponsive
@@ -27,9 +48,9 @@
       {{ work.title }}
     </div>
     <div class="portfolio__client">
-      {{ work.role }}
+      {{ work.description }}
     </div>
-  </div>
+  </li>
 </template>
 
 <script lang="js">
@@ -47,18 +68,18 @@
     },
 
     computed: {
-      cardImage: function() {
+      cardImage () {
         return this.isWork ?
           `work/${this.work.name}/_thumbnail.jpg` :
           `blog/${this.work.id}/_thumbnail.jpg`;
       },
-      nuxtLink: function() {
+      nuxtLink () {
         return this.isWork ?
           'work-slug':
           'blog-slug';
       },
-      backgroundColor: function() {
-        return `background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, ${this.work.colors} 70%);`
+      backgroundColor () {
+        return `background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, ${this.work.color} 70%);`
       }
     }
   }
@@ -75,6 +96,18 @@
   .portfolio {
     width: 100%;
     position: relative;
+
+    &__item {
+      padding-bottom: 2.4rem;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      @media (min-width: $screen-sm){
+        padding-bottom: 4.8rem;
+      }
+    }
 
     &__title {
       &--coming {

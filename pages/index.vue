@@ -3,6 +3,7 @@
     <HeroSection />
     <div class="container">
       <BlogSection :blogs="blogs"/>
+      <PortfolioSection/>
       <AboutSection />
       <ExperienceSection />
     </div>
@@ -44,7 +45,7 @@
         }
       })
     },
-
+    
     components: { PortfolioSection, BlogSection, HeroSection, AboutSection, ExperienceSection, CallToActionSection, MapSection },
 
     head () {
