@@ -9,7 +9,7 @@
     </div>
       <CallToActionSection />
     <div class="container">
-      <lazy-component @show="handler">
+      <lazy-component>
         <MapSection/>
       </lazy-component>
     </div>
@@ -33,12 +33,12 @@
 
       const blogs = store.state.i18n.locale === 'en' ? blogsEn : blogsEs
       
-      async function sacalotodo (blogname) {
-        const wholeMD = await import(`~/contents/${store.state.i18n.locale}/blog/${blogname}.md`)
+      async function asyncImport (blogName) {
+        const wholeMD = await import(`~/contents/${store.state.i18n.locale}/blog/${blogName}.md`)
         return wholeMD.attributes
       }
 
-      return Promise.all(blogs.map(blog => sacalotodo(blog)))
+      return Promise.all(blogs.map(blog => asyncImport(blog)))
       .then((res) => {
         return {
           blogs: res
@@ -68,12 +68,6 @@
     computed: {
       ogImage: function () {
         return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
-      }
-    },
-
-    methods: {
-      handler (component) {
-        console.log('this component is showing')
       }
     }
   }

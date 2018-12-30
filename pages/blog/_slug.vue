@@ -37,8 +37,7 @@
 
 <script lang="js">
   
-  import DynamicMarkdown from "~/components/Work/DynamicMarkdown.vue"
-  import blogMedia from "~/components/Work/WorkMedia.vue"
+  import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue"
   import Card from "~/components/Card.vue"
 
 
@@ -72,7 +71,7 @@
       seo: false
     },
 
-    components: { DynamicMarkdown, blogMedia, Card },
+    components: { DynamicMarkdown, Card },
 
     head () {
       return {
@@ -115,7 +114,8 @@
           hreflang: this.showLocales[0].code
         }
       }
-    }
+    },
+    
   }
 </script>
 
@@ -184,13 +184,39 @@
   }
 }
 .dynamicMarkdown {
-  font-size: 21px;
+  padding-top: 7.2rem;
+  font-size: 19px;
   line-height: 1.7;
+  display: block;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: $secondary;
 
-  p, h2 {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+  h2 {
+    padding-bottom: 3.2rem;
+  }
+
+  pre {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+    padding: 2.4rem;
+    border-radius: 4px;
+    background-color: #f6f8fa;
+    overflow-x: scroll;
+    display: block;
+
+    code {
+      background-color: #f6f8fa;
+    }
+  }
+
+  code {
+    background: #f3f4f4;
+    border-radius: 4px;
+    display: inline;
+    color: $secondary;
+    font-size: 16px;
+    padding: .2em .4em;
   }
 }
 </style>

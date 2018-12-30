@@ -17,12 +17,12 @@
 
       const blogs = store.state.i18n.locale === 'en' ? blogsEn : blogsEs
       
-      async function sacalotodo (blogname) {
-        const wholeMD = await import(`~/contents/${store.state.i18n.locale}/blog/${blogname}.md`)
+      async function asyncImport (blogName) {
+        const wholeMD = await import(`~/contents/${store.state.i18n.locale}/blog/${blogName}.md`)
         return wholeMD.attributes
       }
 
-      return Promise.all(blogs.map(blog => sacalotodo(blog)))
+      return Promise.all(blogs.map(blog => asyncImport(blog)))
       .then((res) => {
         return {
           blogs: res
