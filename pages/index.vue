@@ -2,14 +2,14 @@
   <div class="page-index">
     <HeroSection />
     <div class="container">
-      <PortfolioSection />
-      <BlogSection />
+      <BlogSection :blogs="blogs"/>
+      <PortfolioSection/>
       <AboutSection />
       <ExperienceSection />
     </div>
       <CallToActionSection />
     <div class="container">
-      <lazy-component @show="handler">
+      <lazy-component>
         <MapSection/>
       </lazy-component>
     </div>
@@ -26,7 +26,26 @@
   const MapSection = () => import('~/components/Sections/MapSection')
 
   export default {
+    async asyncData ({store}) {
+    
+      const blogsEn = ['blog-portfolio-using-vue-nuxt-vuex']
+      const blogsEs = ['blog-portfolio-usando-vue-nuxt-vuex']
 
+      const blogs = store.state.i18n.locale === 'en' ? blogsEn : blogsEs
+      
+      async function asyncImport (blogName) {
+        const wholeMD = await import(`~/contents/${store.state.i18n.locale}/blog/${blogName}.md`)
+        return wholeMD.attributes
+      }
+
+      return Promise.all(blogs.map(blog => asyncImport(blog)))
+      .then((res) => {
+        return {
+          blogs: res
+        }
+      })
+    },
+    
     components: { PortfolioSection, BlogSection, HeroSection, AboutSection, ExperienceSection, CallToActionSection, MapSection },
 
     head () {
@@ -49,12 +68,6 @@
     computed: {
       ogImage: function () {
         return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
-      }
-    },
-
-    methods: {
-      handler (component) {
-        console.log('this component is showing')
       }
     }
   }

@@ -70,6 +70,10 @@ img{
   cursor: not-allowed;
 }
 
+li, ul {
+  list-style-type: none;
+}
+
 section {
   margin-bottom: 2.4rem;
   

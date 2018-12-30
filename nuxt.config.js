@@ -1,6 +1,6 @@
-const builtAt = new Date().toISOString();
-const path = require('path');
-const { I18N } = require('./locales/i18n-nuxt-config');
+const builtAt = new Date().toISOString()
+const path = require('path')
+const { I18N } = require('./locales/i18n-nuxt-config')
 
 const productionUrl = {
   en: "/en",
@@ -126,8 +126,6 @@ module.exports = {
     routes: [
       '/es', '404'
     ]
-    .concat(works.map(w => `/work/${w}`))
-    .concat(works.map(w => `es/trabajo/${w}`))
     .concat(blogs_en.map(w => `/blog/${w}`))
     .concat(blogs_es.map(w => `es/blog/${w}`))
   }

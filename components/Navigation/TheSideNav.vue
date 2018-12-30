@@ -35,7 +35,7 @@ export default {
       return this.$route.path === '/' || this.$route.path === '/es' || this.$route.path === '/blog' || this.$route.path === '/es/blog'
     }
   }
-};
+}
 </script>
 
 
