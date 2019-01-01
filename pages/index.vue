@@ -25,11 +25,11 @@
   import CallToActionSection from "~/components/Sections/CallToActionSection"
   const MapSection = () => import('~/components/Sections/MapSection')
 
+  import blogsEn from '~/contents/en/blogsEn.js'
+  import blogsEs from '~/contents/es/blogsEs.js'
+
   export default {
     async asyncData ({store}) {
-    
-      const blogsEn = ['blog-portfolio-using-vue-nuxt-vuex']
-      const blogsEs = ['blog-portfolio-usando-vue-nuxt-vuex']
 
       const blogs = store.state.i18n.locale === 'en' ? blogsEn : blogsEs
       
@@ -67,7 +67,7 @@
 
     computed: {
       ogImage: function () {
-        return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
+        return `${process.env.baseUrl}/images/fb-banner.jpg`;
       }
     }
   }

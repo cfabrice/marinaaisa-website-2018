@@ -1,11 +1,11 @@
 <template>
-  <section class="blogSelected">
+  <div class="blogSelected">
     <div class="intro">
       <div class="elevate-cover">
         <div class="elevate-cover__textOffset">
           <div class="elevate-cover__text">
             <span class="blogSelected-year">{{ year }}</span>
-            —
+            <span v-if="trans">—</span>
             <nuxt-link
               v-if="trans"
               v-for="(locale, i) in showLocales"
@@ -32,7 +32,7 @@
         :render-func="renderFunc"
         :static-render-funcs="staticRenderFuncs" />
     </div>
-  </section>
+  </div>
 </template>
 
 <script lang="js">
@@ -95,7 +95,7 @@
 
     computed: {
       ogImage: function () {
-        return `${process.env.baseUrl}/images/ogp_1200x630.jpg`;
+        return `${process.env.baseUrl}/images/blog/${this.id}/_thumbnail.jpg`;
       },
       pageTitle: function () {
         return 'Marina Aisa | ' + this.title;
@@ -174,9 +174,13 @@
   }
 
   &__title {
-    font-size: 4rem;
+    font-size: 3rem;
     font-family: 'Tiempos Headline', Arial, sans-serif;
     color: $secondary;
+
+    @media (min-width: $screen-sm){
+      font-size: 4rem;
+    }
   }
 
   &__description {
@@ -184,8 +188,8 @@
   }
 }
 .dynamicMarkdown {
-  padding-top: 7.2rem;
-  font-size: 19px;
+  padding: 3.2rem 0;
+  font-size: 16px;
   line-height: 1.7;
   display: block;
   max-width: 700px;
@@ -193,8 +197,27 @@
   margin-right: auto;
   color: $secondary;
 
+  @media (min-width: $screen-sm){
+    padding: 7.2rem 0;
+    font-size: 19px;
+  }
+
   h2 {
     padding-bottom: 3.2rem;
+    padding-bottom: 2rem;
+
+    @media (max-width: $screen-sm){
+      font-size: 2rem;
+    }
+  }
+
+  h3 {
+    font-size: 2.2rem;
+    padding-bottom: 2rem;
+  }
+
+  li {
+    list-style-type: initial;
   }
 
   pre {
@@ -204,6 +227,7 @@
     background-color: #f6f8fa;
     overflow-x: scroll;
     display: block;
+    margin-bottom: 5rem;
 
     code {
       background-color: #f6f8fa;
@@ -215,8 +239,12 @@
     border-radius: 4px;
     display: inline;
     color: $secondary;
-    font-size: 16px;
+    font-size: 14px;
     padding: .2em .4em;
+
+    @media (min-width: $screen-sm){
+      font-size: 16px;
+    }
   }
 }
 </style>

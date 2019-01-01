@@ -34,7 +34,7 @@ $fs-small:                    $fs-base-responsive;
 $fs-small-responsive:         1rem;
 $fs-h1:                       $fs-large;
 $fs-h2:                       $fs-large;
-$fs-h3:                       $fs-base;
+$fs-h3:                       2rem;
 $fs-h4:                       $fs-base;
 $fs-h5:                       $fs-base;
 $fs-h6:                       $fs-small;
@@ -134,21 +134,14 @@ h3,.h3{
 }
 
 h4,.h4{
-  font-size: $fs-h3;
+  font-size: $fs-h4;
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: regular;
 }
 
 h5,.h5{
-  font-size: $fs-h3;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-weight: regular;
-}
-
-h6,.h6{
-  font-size: $fs-h3;
+  font-size: $fs-h5;
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: regular;

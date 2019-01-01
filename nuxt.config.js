@@ -1,6 +1,8 @@
 const builtAt = new Date().toISOString()
 const path = require('path')
 const { I18N } = require('./locales/i18n-nuxt-config')
+import blogsEn from './contents/en/blogsEn.js'
+import blogsEs from './contents/es/blogsEs.js'
 
 const productionUrl = {
   en: "/en",
@@ -10,14 +12,6 @@ const baseUrl = 'marinaaisa.com';
 
 const works = [
   "vr-player"
-];
-
-const blogs_es = [
-  "blog-portfolio-usando-vue-nuxt-vuex"
-];
-
-const blogs_en = [
-  "blog-portfolio-using-vue-nuxt-vuex"
 ];
 
 module.exports = {
@@ -126,7 +120,7 @@ module.exports = {
     routes: [
       '/es', '404'
     ]
-    .concat(blogs_en.map(w => `/blog/${w}`))
-    .concat(blogs_es.map(w => `es/blog/${w}`))
+    .concat(blogsEn.map(w => `/blog/${w}`))
+    .concat(blogsEs.map(w => `es/blog/${w}`))
   }
 }

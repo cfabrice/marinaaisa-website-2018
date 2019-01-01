@@ -31,6 +31,11 @@ export default {
   &--white {
     color: white;
   }
+
+  @media (max-width: $screen-sm){
+    border-color: white;
+    margin-bottom: 2rem;
+  }
 }
 select {
   color: $primary;

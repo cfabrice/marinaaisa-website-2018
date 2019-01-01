@@ -4,7 +4,7 @@
     class="the-header"
   >
     <div class="container">
-      <nuxt-link :to="localePath('index')">
+      <nuxt-link :to="localePath('index')" class="the-header__link-logo">
         <img src="~/assets/images/logo-marina.svg" alt="Logo Marina" class="the-header__logo">
       </nuxt-link>
       <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
@@ -42,7 +42,7 @@ export default {
 
 .the-header {
   width: 100%;
-  height: 8rem;
+  height: 6rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -51,13 +51,22 @@ export default {
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
   background-color: white;
 
+  @media (min-width: $screen-sm){
+    height: 8rem;
+  }
+
   &__logo {
     height: 100%;
   }
 
   .container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+  }
+
+  &__link-logo {
+    line-height: 0;
   }
 
   a {

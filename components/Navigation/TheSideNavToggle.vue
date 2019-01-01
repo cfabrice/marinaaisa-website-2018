@@ -29,6 +29,10 @@
     margin-bottom: .8rem;
     border-radius: 20px;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     .the-header--dark & {
       background-color: white;
     }
