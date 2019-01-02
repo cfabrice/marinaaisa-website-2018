@@ -8,7 +8,7 @@ const productionUrl = {
   en: "/en",
   es: "/es"
 };
-const baseUrl = 'marinaaisa.com';
+const baseUrl = 'https://marinaaisa.com';
 
 const works = [
   "vr-player"

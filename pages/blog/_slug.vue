@@ -98,7 +98,7 @@
         return `${process.env.baseUrl}/images/blog/${this.id}/_thumbnail.jpg`;
       },
       pageTitle: function () {
-        return 'Marina Aisa | ' + this.title;
+        return this.title + '– Marina Aisa';
       },
       showLocales () {
         return this.$i18n.locales.filter(locale => locale.code !== this.$i18n.locale)
