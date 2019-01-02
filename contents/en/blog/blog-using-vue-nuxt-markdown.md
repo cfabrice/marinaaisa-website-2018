@@ -13,25 +13,25 @@ description: |
 
 Although some of you already know me, I am [Marina Aísa](https://twitter.com/MarinaAisa), UX Engineer (design and front-end) and I currently work at [Holaluz](https://www.holaluz.com/en).
 
-Last year, 2018, I was very focused on learning more about JavaScript, which was a pending subject and with that I learned a lot of [Vue.js](https://vuejs.org/). At the same time, in Holaluz, we started using [Nuxt.js](https://nuxtjs.org/) a framework on VueJS to remake both company's static and dynamic (SPA) webapps into components and create a design system with it.
+Last year, 2018, I was very focused on learning more about JavaScript, which was a pending subject and at the same time I learnt [Vue.js](https://vuejs.org/). Meanwhile at my workplace, we started using [Nuxt.js](https://nuxtjs.org/) a framework on VueJS to remake both company's static and dynamic (SPA) webapps into components and create a design system with it.
 
 My previous website was made with [Middleman](https://middlemanapp.com/) a static pages generator based on Ruby, so I took the opportunity to redo my website with Nuxt and Vue, in order to:
 - To learn
 - Improve performance
-- Add functionality to the web as a blog and portfolio system
+- Add functionality as a blog and portfolio system
 - Add two languages, Spanish and English, **also in blog posts** but independently, since I guess I won't translate every post in both languages.
 
-What attracts me the most of Nuxt is the philosophy *serverless* (Nuxt can also be SSR but I don't think I need it for my website) and the static prerendering it provides to SPA applications. Briefly, with this stack you can combine the best of a static website: compiled HTML -> what leads to better SEO, plus the best of a *single page application*: Webpack, cache optimizations, lazy-loading, functions and asynchronous data...
+What attracts me the most of Nuxt is the philosophy *serverless* (Nuxt can also be SSR tho) and the static prerendering it provides to SPA applications. Briefly, with this stack you can combine the best of a static website: compiled HTML -> what leads to a better SEO, plus the best of a *single page application*: Webpack, cache optimizations, lazy-loading, functions and asynchronous data...
 
-## Where do I get the content if I don't have a server?
+## But where do I get the content if I don't have a server?
 
-Nuxt, by following the architecture [JAMStack](https://jamstack.org/) is built to get content through APIs, so many people use headless CMSs like [Contentful](https://www.contentful.com/) or [Prismic](https://prismic.io/). At first I thought they were interesting options but I realized that it wasn't necessary for a website like mine since the CMSs are oriented to be used by people without technical knowledge, besides they are expensive, they save the assets on their own servers and they aren't the best option if I wanted to have the best performance.
+Nuxt, by following the architecture [JAMStack](https://jamstack.org/) is built to get content through APIs, so many people use headless CMSs like [Contentful](https://www.contentful.com/) or [Prismic](https://prismic.io/). At first I thought they were interesting options but I realized that it wasn't necessary for a website like mine since CMSs are oriented to be used by people without technical knowledge, besides they are expensive, they save assets on their own servers and they aren't the best option if I wanted to have the best performance.
 
 **Therefore, I decided to use a Markdowns system that I store in Github and call dynamically.**
 
 ### Importing posts on the main page depending on the language
 
-Using the asynchronous function <inline-code>asyncData</inline-code> that Nuxt provides only in its pages (it is not avalaible in its components) I import the Markdowns that I have saved in the folder <inline-code>content</inline-code> of the project. Later I return them in the form of *promise* as an array of objects. As you can see below, the importation depends on the constant <inline-code>blogs</inline-code> which will be the array <inline-code>blogsEs</inline-code> or <inline-code>blogsEn</inline-code> depending on the language of the page.
+Using the asynchronous function <inline-code>asyncData</inline-code> that Nuxt provides only in its pages (it is not avalaible in its components) I import the Markdowns that I have saved in the folder <inline-code>content</inline-code> of the project. Later I return them in the form of a promise as an array of objects. As you can see below, this import depends on the constant <inline-code>blogs</inline-code> which will be the array <inline-code>blogsEs</inline-code> or <inline-code>blogsEn</inline-code> depending on the language of the page stored on the Vuex's state.
 
 ```javascript
 import blogsEn from '~/contents/en/blogsEn.js'
@@ -54,7 +54,7 @@ async asyncData ({store}) {
 }
 ```
 
-The reason why I have the arrays containing the blogs names imported from outside is because I want to use it also to generate the static pages through the object [generate](https://nuxtjs.org/api/configuration-generate/) in the Nuxt configuration, file <inline-code>nuxt.config.js</inline-code>.
+The reason why I'm importing the arrays containing the blogs names is because I want to use it also to generate the static pages through the object [generate](https://nuxtjs.org/api/configuration-generate/) in the Nuxt configuration, file <inline-code>nuxt.config.js</inline-code>.
 
 ```javascript
 import blogsEn from '~/contents/en/blogsEn.js'
@@ -98,7 +98,7 @@ async asyncData ({params, store}) {
 
 If we wanted to create a portfolio in the future, it would be exactly the same as the blog. We would create within <inline-code>contents</inline-code> a folder called <inline-code>portfolio</inline-code> and we would do the same process that we have done with <inline-code>blogs</inline-code>.
 
-The loader for Webpack Markdown files that I use is: [frontmatter-markdown-loader](https://www.npmjs.com/package/frontmatter-markdown-loader) that allows me to put Vue components inside markdown, as well as extract the <inline-code>frontmatter</inline-code> attributes as they do static generators like Jekyll. For making the code look pretty I apply: [HighlightJS](https://highlightjs.org/)
+The loader for Webpack Markdown files that I use is: [frontmatter-markdown-loader](https://www.npmjs.com/package/frontmatter-markdown-loader) that allows me to put Vue components inside markdown files, as well as extract the <inline-code>frontmatter</inline-code> attributes as they do static generators like Jekyll. For making the code look pretty I apply: [HighlightJS](https://highlightjs.org/)
 
 ## Let's talk about performance
 

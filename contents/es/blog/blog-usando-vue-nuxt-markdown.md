@@ -13,15 +13,15 @@ description: |
 
 Aunque algunos ya me conoceis, soy [Marina Aísa](https://twitter.com/MarinaAisa), UX Engineer (diseño y front-end) y actualmente trabajo en [Holaluz](https://www.holaluz.com).
 
-El pasado año, 2018, estuve muy enfocada en aprender más de JavaScript, el cual era una asignatura pendiente y con ello aprendí mucho de [Vue.js](https://vuejs.org/). Al mismo tiempo, en Holaluz, empezamos a utilizar [Nuxt.js](https://nuxtjs.org/) un framework sobre VueJS para rehacer tanto las webs estáticas como dinámicas (SPA) de la empresa en componentes y poder crear un sistema de diseño con ello.
+El pasado año, 2018, estuve muy enfocada en aprender más de JavaScript, el cual era una asignatura pendiente y a la vez aprendí uno de sus librerías, [Vue.js](https://vuejs.org/). Al mismo tiempo, en Holaluz, empezamos a utilizar [Nuxt.js](https://nuxtjs.org/) un framework sobre VueJS para rehacer tanto las webs estáticas como dinámicas (SPA) de la empresa en componentes y poder crear un sistema de diseño con ello.
 
 Mi web anterior estaba hecha con [Middleman](https://middlemanapp.com/) un generador de páginas estáticas basado en Ruby, así que aproveché para rehacer mi web con Nuxt y Vue, con el fin de:
 - Aprender
 - Mejorar la performance
-- Añadir funcionalidades a la web como un blog y sistema de portfolio
+- Añadir funcionalidades a la web como un blog y portfolio
 - Añadir dos idiomas, español y inglés, **también en los posts del blog** pero de forma independiente, ya que cuento con que algunos posts que no estén traducidos en ambos idiomas.
 
-Lo que más me atrae de Nuxt es la filosofía *serverless* (Nuxt también puede ser SSR pero no lo creo necesario para mi web) y el prerendering estático que proporciona a aplicaciones SPA. Resumidamente, con ello se puede combinar lo mejor de una web estática: HTML compilado -> lo que conlleva mejor SEO, más lo mejor de una *single page application*: Webpack, optimizaciones de caché, lazy-loading, funciones y datos asíncronos...
+Lo que más me atrae de Nuxt es la filosofía *serverless* (aunque Nuxt también puede ser SSR) y el prerendering estático que proporciona a aplicaciones SPA. Resumidamente, con ello se puede combinar lo mejor de una web estática: HTML compilado -> lo que conlleva mejor SEO, más lo mejor de una *single page application*: Webpack, optimizaciones de caché, lazy-loading, funciones y datos asíncronos...
 
 ## ¿De dónde saco el contenido si no tengo servidor?
 
@@ -31,7 +31,7 @@ Nuxt, al seguir la arquitectura [JAMStack](https://jamstack.org/) está construi
 
 ### Importación de los artículos en la página principal dependiendo del idioma
 
-Mediante la función asíncrona <inline-code>asyncData</inline-code> que proporciona Nuxt solo en sus páginas (no es sus componentes) hago una importación de los Markdown que tengo guardados en la carpeta <inline-code>content</inline-code> del proyecto. Posteriormente los devuelvo en forma de promesa como un array de objetos. Como puedes ver a continuación, la importación depende de la constante <inline-code>blogs</inline-code> que será el array <inline-code>blogsEs</inline-code> o <inline-code>blogsEn</inline-code> dependiendo del idioma de la página.
+Mediante la función asíncrona <inline-code>asyncData</inline-code> que proporciona Nuxt solo en sus páginas (no en sus componentes) hago una importación de los Markdown que tengo guardados en la carpeta <inline-code>content</inline-code> del proyecto. Posteriormente los devuelvo en forma de promesa como un array de objetos. Como puedes ver a continuación, la importación depende de la constante <inline-code>blogs</inline-code> que será el array <inline-code>blogsEs</inline-code> o <inline-code>blogsEn</inline-code> dependiendo del idioma de la página.
 
 ```javascript
 import blogsEn from '~/contents/en/blogsEn.js'
@@ -96,7 +96,7 @@ async asyncData ({params, store}) {
 }
 ```
 
-Si quisieramos crear un portfolio en el futuro sería exactamente igual que el blog. Crearíamos dentro de <inline-code>contents</inline-code> una carpeta llamada <inline-code>portfolio</inline-code> y haríamos el mismo proceso que hemos hecho con <inline-code>blogs</inline-code>.
+Si quisieramos crear un portfolio sería exactamente igual que el blog. Crearíamos dentro de <inline-code>contents</inline-code> una carpeta llamada <inline-code>portfolio</inline-code> y haríamos el mismo proceso que hemos hecho con <inline-code>blogs</inline-code>.
 
 El loader para archivos Markdown de Webpack que utilizo es: [frontmatter-markdown-loader](https://www.npmjs.com/package/frontmatter-markdown-loader) que me permite meter componentes de Vue dentro de markdown, así como extraer los atributos <inline-code>frontmatter</inline-code> como hacen generadores estáticos como Jekyll. Y para que el código se vea así de bonito le aplico: [HighlightJS](https://highlightjs.org/)
 
@@ -158,5 +158,5 @@ Para traducir la web en inglés y español utilizo [nuxt-i18n](https://github.co
 
 Aquí te dejo el código total de mi web pero ten en cuenta que es mi primer proyecto con Nuxt y Vue en solitario y que sé que tengo que limpiar bastante y darle un poco más de amor en la siguiente iteración. [Código de marinaaisa.com en Github](https://github.com/marinaaisa/marinaaisa-website-2018)
 
-Cómo no tengo comentarios en el blog, me encantaría que continuesemos la conversación en [Twitter](https://twitter.com/MarinaAisa). ¡Todo feedback es bienvenido! Si crees que hay algo que se puede mejorar me ayudarías muchísimo.
+Cómo no tengo comentarios en el blog, me encantaría continuar la conversación en [Twitter](https://twitter.com/MarinaAisa). ¡Todo feedback es bienvenido! Si crees que hay algo que se puede mejorar me ayudarías muchísimo.
 ¡Feliz 2019!
