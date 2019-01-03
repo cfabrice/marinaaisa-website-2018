@@ -13,15 +13,15 @@ description: |
 
 Aunque algunos ya me conoceis, soy [Marina Aísa](https://twitter.com/MarinaAisa), UX Engineer (diseño y front-end) y actualmente trabajo en [Holaluz](https://www.holaluz.com).
 
-El pasado año, 2018, estuve muy enfocada en aprender más de JavaScript, el cual era una asignatura pendiente y a la vez aprendí uno de sus librerías, [Vue.js](https://vuejs.org/). Al mismo tiempo, en Holaluz, empezamos a utilizar [Nuxt.js](https://nuxtjs.org/) un framework sobre VueJS para rehacer tanto las webs estáticas como dinámicas (SPA) de la empresa en componentes y poder crear un sistema de diseño con ello.
+El pasado año, 2018, estuve muy enfocada en aprender más de JavaScript, la cual era una asignatura pendiente y a la vez aprendí una de sus librerías, [Vue.js](https://vuejs.org/). Al mismo tiempo, en Holaluz, empezamos a utilizar [Nuxt.js](https://nuxtjs.org/), un framework sobre VueJS para rehacer tanto las webs estáticas como las dinámicas (SPA) de la empresa en componentes y poder crear un sistema de diseño con ello.
 
-Mi web anterior estaba hecha con [Middleman](https://middlemanapp.com/) un generador de páginas estáticas basado en Ruby, así que aproveché para rehacer mi web con Nuxt y Vue, con el fin de:
+Mi web anterior estaba hecha con [Middleman](https://middlemanapp.com/), un generador de páginas estáticas basado en Ruby, así que aproveché para rehacer mi web con Nuxt y Vue, con el fin de:
 - Aprender
 - Mejorar la performance
 - Añadir funcionalidades a la web como un blog y portfolio
-- Añadir dos idiomas, español y inglés, **también en los posts del blog** pero de forma independiente, ya que cuento con que algunos posts que no estén traducidos en ambos idiomas.
+- Añadir dos idiomas, español e inglés, **también en los posts del blog** pero de forma independiente, ya que cuento con algunos posts que no estén traducidos en ambos idiomas.
 
-Lo que más me atrae de Nuxt es la filosofía *serverless* (aunque Nuxt también puede ser SSR) y el prerendering estático que proporciona a aplicaciones SPA. Resumidamente, con ello se puede combinar lo mejor de una web estática: HTML compilado -> lo que conlleva mejor SEO, más lo mejor de una *single page application*: Webpack, optimizaciones de caché, lazy-loading, funciones y datos asíncronos...
+Lo que más me atrae de Nuxt es la filosofía *serverless* (aunque Nuxt también puede ser SSR) y el prerendering estático que proporciona a aplicaciones SPA. Resumidamente, con ello se puede combinar lo mejor de una web estática: HTML compilado, lo que conlleva mejor SEO, y lo mejor de una *single page application*: Webpack, optimizaciones de caché, lazy-loading, funciones y datos asíncronos...
 
 ## ¿De dónde saco el contenido si no tengo servidor?
 
